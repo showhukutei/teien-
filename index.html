@@ -1,0 +1,1241 @@
+<html lang="ja"><head><script>(function(firebaseConfig, initialAuthToken, appId) {
+        window.__firebase_config = firebaseConfig;
+        window.__initial_auth_token = initialAuthToken;
+        window.__app_id = appId;
+            })("\n{\n  \"apiKey\": \"AIzaSyCqyCcs2R2e7AegGjvFAwG98wlamtbHvZY\",\n  \"authDomain\": \"bard-frontend.firebaseapp.com\",\n  \"projectId\": \"bard-frontend\",\n  \"storageBucket\": \"bard-frontend.firebasestorage.app\",\n  \"messagingSenderId\": \"175205271074\",\n  \"appId\": \"1:175205271074:web:2b7bd4d34d33bf38e6ec7b\"\n}\n","eyJhbGciOiJSUzI1NiIsImtpZCI6ImQ1OTQzZDdlNWZhYTIxZjcyOTJjMzI3MGY3ZDBjNWJmNDE5MjJmOTciLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1mYnN2Y0BiYXJkLWZyb250ZW5kLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6Ly9pZGVudGl0eXRvb2xraXQuZ29vZ2xlYXBpcy5jb20vZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJ1aWQiOiIwNTI1NTAzOTgxMTQwNjI1MDMwNCIsImlzcyI6ImZpcmViYXNlLWFkbWluc2RrLWZic3ZjQGJhcmQtZnJvbnRlbmQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJjbGFpbXMiOnsiYXBwSWQiOiJjX2UyOWYwMDg3NzYwYmI4ZDhfY29uY2VydF9zY2hlZHVsZV9hcHAuaHRtbC0zMzkifSwiZXhwIjoxNzcwNDIyOTQyLCJpYXQiOjE3NzA0MTkzNDIsImFsZyI6IlJTMjU2In0.WldfinLath1L89rGjQcFmNlx4YyGriYI6O2aGVB39LFjKTR8ekE6-wTMaS-QIuIfeYuwk-wiT5UQ0nF28vkAERNJtMAjNrb0Qk-2Gq6uojlMsNfPaLoZ1Gxc9PtgxTI1VHL_eYBJL-6w-9A6uPZsv9_bR-PYcUNzkP5UdWNVtEc78eYmGBvwF6Yw99f1MWG7lXC6BERo3YzLcz_c2jxrDB0yHWAC7OzN5BJbCb581I0n36CR_h-2wKPmimvERrJ567gE_afro5uE1ZGArCLkBnkzlyVioMuW0exClz0yezef7cw9v-Qj45Eoesm7dtp27u6SSWGVenmlYNxA0ShudA","c_e29f0087760bb8d8_concert_schedule_app.html-339")</script><script>'use strict';var h=typeof Object.defineProperties=="function"?Object.defineProperty:function(a,b,d){if(a==Array.prototype||a==Object.prototype)return a;a[b]=d.value;return a};function l(a){a=["object"==typeof globalThis&&globalThis,a,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var b=0;b<a.length;++b){var d=a[b];if(d&&d.Math==Math)return d}throw Error("Cannot find global object");}var n=l(this);
+function p(a,b){if(b)a:{var d=n;a=a.split(".");for(var c=0;c<a.length-1;c++){var e=a[c];if(!(e in d))break a;d=d[e]}a=a[a.length-1];c=d[a];b=b(c);b!=c&&b!=null&&h(d,a,{configurable:!0,writable:!0,value:b})}}function r(a){function b(c){return a.next(c)}function d(c){return a.throw(c)}return new Promise(function(c,e){function f(g){g.done?c(g.value):Promise.resolve(g.value).then(b,d).then(f,e)}f(a.next())})}function t(a){return r(a())}
+p("Object.values",function(a){return a?a:function(b){var d=[],c;for(c in b)Object.prototype.hasOwnProperty.call(b,c)&&d.push(b[c]);return d}});p("Array.prototype.includes",function(a){return a?a:function(b,d){var c=this;c instanceof String&&(c=String(c));var e=c.length;d=d||0;for(d<0&&(d=Math.max(d+e,0));d<e;d++){var f=c[d];if(f===b||Object.is(f,b))return!0}return!1}});/*
+
+ MIT License
+
+ Copyright (c) 2017-2023 W.Y.
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+
+*/
+function u(a,b){const d=a.style;b.backgroundColor&&(d.backgroundColor=b.backgroundColor);b.width&&(d.width=`${b.width}px`);b.height&&(d.height=`${b.height}px`);const c=b.style;c!=null&&Object.keys(c).forEach(e=>{d[e]=c[e]})};var v=(()=>{let a=0;return()=>{a+=1;return`u${`0000${(Math.random()*1679616<<0).toString(36)}`.slice(-4)}${a}`}})();function w(a){const b=[];for(let d=0,c=a.length;d<c;d++)b.push(a[d]);return b}let x=null;function y(a={}){return x?x:a.l?x=a.l:x=w(window.getComputedStyle(document.documentElement))}function z(a,b){return(a=(a.ownerDocument.defaultView||window).getComputedStyle(a).getPropertyValue(b))?parseFloat(a.replace("px","")):0}
+function A(a,b={}){var d;if(!(d=b.width)){d=z(a,"border-left-width");var c=z(a,"border-right-width");d=a.clientWidth+d+c}(b=b.height)||(b=z(a,"border-top-width"),c=z(a,"border-bottom-width"),b=a.clientHeight+b+c);return{width:d,height:b}}function B(a){return new Promise((b,d)=>{const c=new Image;c.onload=()=>{c.decode().then(()=>{requestAnimationFrame(()=>b(c))})};c.onerror=d;c.crossOrigin="anonymous";c.decoding="async";c.src=a})}
+function C(a){return t(function*(){return Promise.resolve().then(()=>(new XMLSerializer).serializeToString(a)).then(encodeURIComponent).then(b=>`data:image/svg+xml;charset=utf-8,${b}`)})}
+function D(a,b,d){return t(function*(){const c=document.createElementNS("http://www.w3.org/2000/svg","svg"),e=document.createElementNS("http://www.w3.org/2000/svg","foreignObject");c.setAttribute("width",`${b}`);c.setAttribute("height",`${d}`);c.setAttribute("viewBox",`0 0 ${b} ${d}`);e.setAttribute("width","100%");e.setAttribute("height","100%");e.setAttribute("x","0");e.setAttribute("y","0");e.setAttribute("externalResourcesRequired","true");c.appendChild(e);e.appendChild(a);return C(c)})}
+var E=(a,b)=>{if(a instanceof b)return!0;a=Object.getPrototypeOf(a);return a===null?!1:a.constructor.name===b.name||E(a,b)};function F(a,b){return y(b).map(d=>{const c=a.getPropertyValue(d),e=a.getPropertyPriority(d);return`${d}: ${c}${e?" !important":""};`}).join(" ")}
+function G(a,b,d,c){a=window.getComputedStyle(a,d);var e=a.getPropertyValue("content");if(e!==""&&e!=="none"){var f=v();try{b.className=`${b.className} ${f}`}catch(k){return}e=document.createElement("style");var g=e.appendChild;d=`.${f}:${d}`;a.cssText?(c=a.getPropertyValue("content"),c=`${a.cssText} content: '${c.replace(/'|"/g,"")}';`):c=F(a,c);g.call(e,document.createTextNode(`${d}{${c}}`));b.appendChild(e)}};function H(a){return a.search(/^(data:)/)!==-1}function I(a,b,d){return t(function*(){const c=yield fetch(a,b);if(c.status===404)throw Error(`Resource "${c.url}" not found`);const e=yield c.blob();return new Promise((f,g)=>{const k=new FileReader;k.onerror=g;k.onloadend=()=>{try{f(d({o:c,result:k.result}))}catch(m){g(m)}};k.readAsDataURL(e)})})}const J={};function K(a,b,d){let c=a.replace(/\?.*/,"");d&&(c=a);/ttf|otf|eot|woff2?/i.test(c)&&(c=c.replace(/.*\//,""));return b?`[${b}]${c}`:c}
+function L(a,b,d){return t(function*(){const c=K(a,b,d.C);if(J[c]!=null)return J[c];d.u&&(a+=(/\?/.test(a)?"&":"?")+(new Date).getTime());let e;try{const f=yield I(a,d.i,({o:g,result:k})=>{b||(b=g.headers.get("Content-Type")||"");return k.split(/,/)[1]});e=`data:${b};base64,${f}`}catch(f){e=d.B||""}return J[c]=e})};const M={P:"application/font-woff",R:"application/font-woff",N:"application/font-truetype",v:"application/vnd.ms-fontobject",H:"image/png",F:"image/jpeg",D:"image/jpeg",A:"image/gif",M:"image/tiff",L:"image/svg+xml",O:"image/webp"};function N(a){return(a=/\.([^./]*?)$/g.exec(a))?a[1]:""};function O(a){return t(function*(){const b=a.toDataURL();return b==="data:,"?a.cloneNode(!1):B(b)})}function aa(a,b){return t(function*(){if(a.currentSrc){var d=document.createElement("canvas");const c=d.getContext("2d");d.width=a.clientWidth;d.height=a.clientHeight;c==null||c.drawImage(a,0,0,d.width,d.height);d=d.toDataURL();return B(d)}d=a.poster;d=yield L(d,M[N(d).toLowerCase()]||"",b);return B(d)})}
+function ba(a,b){return t(function*(){try{let d;if(a==null?0:(d=a.contentDocument)==null?0:d.body)return yield P(a.contentDocument.body,b,!0)}catch(d){}return a.cloneNode(!1)})}function ca(a,b){return t(function*(){return E(a,HTMLCanvasElement)?O(a):E(a,HTMLVideoElement)?aa(a,b):E(a,HTMLIFrameElement)?ba(a,b):a.cloneNode(a.tagName!=null&&a.tagName.toUpperCase()==="SVG")})}
+function da(a,b,d){return t(function*(){if(b.tagName!=null&&b.tagName.toUpperCase()==="SVG")return b;let c=[];if(a.tagName!=null&&a.tagName.toUpperCase()==="SLOT"&&a.assignedNodes)c=w(a.assignedNodes());else{let e;if(E(a,HTMLIFrameElement)&&((e=a.contentDocument)==null?0:e.body))c=w(a.contentDocument.body.childNodes);else{let f;c=w(((f=a.shadowRoot)!=null?f:a).childNodes)}}if(c.length===0||E(a,HTMLVideoElement))return b;yield c.reduce((e,f)=>e.then(()=>P(f,d)).then(g=>{g&&b.appendChild(g)}),Promise.resolve());
+return b})}function ea(a,b,d){const c=b.style;if(c){var e=window.getComputedStyle(a);e.cssText?(c.cssText=e.cssText,c.transformOrigin=e.transformOrigin):y(d).forEach(f=>{let g=e.getPropertyValue(f);f==="font-size"&&g.endsWith("px")&&(g=`${Math.floor(parseFloat(g.substring(0,g.length-2)))-.1}px`);E(a,HTMLIFrameElement)&&f==="display"&&g==="inline"&&(g="block");f==="d"&&b.getAttribute("d")&&(g=`path(${b.getAttribute("d")})`);c.setProperty(f,g,e.getPropertyPriority(f))})}}
+function fa(a,b){E(a,HTMLSelectElement)&&(b=Array.from(b.children).find(d=>a.value===d.getAttribute("value")))&&b.setAttribute("selected","")}
+function ha(a,b){return t(function*(){var d=a.querySelectorAll?a.querySelectorAll("use"):[];if(d.length===0)return a;var c={};for(var e=0;e<d.length;e++){var f=d[e].getAttribute("xlink:href");if(f){const g=document.querySelector(f);a.querySelector(f)||!g||c[f]||(c[f]=yield P(g,b,!0))}}d=Object.values(c);if(d.length){c=document.createElementNS("http://www.w3.org/1999/xhtml","svg");c.setAttribute("xmlns","http://www.w3.org/1999/xhtml");c.style.position="absolute";c.style.width="0";c.style.height="0";
+c.style.overflow="hidden";c.style.display="none";e=document.createElementNS("http://www.w3.org/1999/xhtml","defs");c.appendChild(e);for(f=0;f<d.length;f++)e.appendChild(d[f]);a.appendChild(c)}return a})}
+function P(a,b,d){return t(function*(){return d||!b.filter||b.filter(a)?Promise.resolve(a).then(c=>ca(c,b)).then(c=>da(a,c,b)).then(c=>{E(c,Element)&&(ea(a,c,b),G(a,c,":before",b),G(a,c,":after",b),E(a,HTMLTextAreaElement)&&(c.textContent=a.value),E(a,HTMLInputElement)&&c.setAttribute("value",a.value),fa(a,c));return c}).then(c=>ha(c,b)):null})};const Q=/url\((['"]?)([^'"]+?)\1\)/g,ia=/url\([^)]+\)\s*format\((["']?)([^"']+)\1\)/g,ja=/src:\s*(?:url\([^)]+\)\s*format\([^)]+\)[,;]\s*)+/g;function ka(a){const b=[];a.replace(Q,(d,c,e)=>{b.push(e);return d});return b.filter(d=>!H(d))}
+function la(a,b,d,c){return t(function*(){try{const e=d?(new URL(b,d||void 0)).toString():b;let f;f=yield L(e,M[N(b).toLowerCase()]||"",c);return a.replace(new RegExp(`(url\\(['"]?)(${b.replace(/([.*+?^${}()|\[\]\/\\])/g,"\\$1")})(['"]?\\))`,"g"),`$1${f}$3`)}catch(e){}return a})}function ma(a,{I:b}){return b?a.replace(ja,d=>{for(;;){const [c,,e]=ia.exec(d)||[],f=c,g=e;if(!g)return"";if(g===b)return`src: ${f};`}}):a}
+function R(a,b,d){return t(function*(){if(a.search(Q)===-1)return a;const c=ma(a,d);return ka(c).reduce((e,f)=>e.then(g=>la(g,f,b,d)),Promise.resolve(c))})};function S(a,b,d){return t(function*(){var c;const e=(c=b.style)==null?void 0:c.getPropertyValue(a);return e?(c=yield R(e,null,d),b.style.setProperty(a,c,b.style.getPropertyPriority(a)),!0):!1})}function na(a,b){return t(function*(){(yield S("background",a,b))||(yield S("background-image",a,b));(yield S("mask",a,b))||(yield S("-webkit-mask",a,b))||(yield S("mask-image",a,b))||(yield S("-webkit-mask-image",a,b))})}
+function oa(a,b){return t(function*(){const d=E(a,HTMLImageElement);if(d&&!H(a.src)||E(a,SVGImageElement)&&!H(a.href.baseVal)){var c=d?a.src:a.href.baseVal,e=yield L(c,M[N(c).toLowerCase()]||"",b);yield new Promise((f,g)=>{a.onload=f;a.onerror=b.m?(...k)=>{try{f(b.m(...k))}catch(m){g(m)}}:g;a.decode&&(a.decode=f);a.loading==="lazy"&&(a.loading="eager");d?(a.srcset="",a.src=e):a.href.baseVal=e})}})}
+function pa(a,b){return t(function*(){const d=w(a.childNodes).map(c=>T(c,b));yield Promise.all(d).then(()=>a)})}function T(a,b){return t(function*(){E(a,Element)&&(yield na(a,b),yield oa(a,b),yield pa(a,b))})};const U={};function V(a){return t(function*(){var b=U[a];if(b!=null)return b;b=yield(yield fetch(a)).text();b={url:a,cssText:b};return U[a]=b})}function W(a,b){return t(function*(){let d=a.cssText;const c=/url\(["']?([^"')]+)["']?\)/g,e=(d.match(/url\([^)]+\)/g)||[]).map(f=>t(function*(){let g=f.replace(c,"$1");g.startsWith("https://")||(g=(new URL(g,a.url)).href);return I(g,b.i,({result:k})=>{d=d.replace(f,`url(${k})`);return[f,k]})}));return Promise.all(e).then(()=>d)})}
+function X(a){if(a==null)return[];const b=[];a=a.replace(/(\/\*[\s\S]*?\*\/)/gi,"");for(var d=RegExp("((@.*?keyframes [\\s\\S]*?){([\\s\\S]*?}\\s*?)})","gi");;){var c=d.exec(a);if(c===null)break;b.push(c[0])}a=a.replace(d,"");d=/@import[\s\S]*?url\([^)]*\)[\s\S]*?;/gi;for(c=RegExp("((\\s*?(?:\\/\\*[\\s\\S]*?\\*\\/)?\\s*?@media[\\s\\S]*?){([\\s\\S]*?)}\\s*?})|(([\\s\\S]*?){([\\s\\S]*?)})","gi");;){let e=d.exec(a);if(e===null)if(e=c.exec(a),e===null)break;else d.lastIndex=c.lastIndex;else c.lastIndex=
+d.lastIndex;b.push(e[0])}return b}
+function qa(a,b){return t(function*(){const d=[],c=[];a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach((f,g)=>{if(f.type===CSSRule.IMPORT_RULE){let k=g+1;f=V(f.href).then(m=>W(m,b)).then(m=>X(m).forEach(q=>{try{e.insertRule(q,q.startsWith("@import")?k+=1:e.cssRules.length)}catch(Da){}})).catch(()=>{});c.push(f)}})}catch(f){const g=a.find(k=>k.href==null)||document.styleSheets[0];e.href!=null&&c.push(V(e.href).then(k=>W(k,b)).then(k=>X(k).forEach(m=>{g.insertRule(m,g.cssRules.length)})).catch(()=>
+{}))}});return Promise.all(c).then(()=>{a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach(f=>{d.push(f)})}catch(f){}});return d})})}function ra(a){return a.filter(b=>b.type===CSSRule.FONT_FACE_RULE).filter(b=>b.style.getPropertyValue("src").search(Q)!==-1)}function sa(a,b){return t(function*(){if(a.ownerDocument==null)throw Error("Provided element is not within a Document");var d=w(a.ownerDocument.styleSheets);d=yield qa(d,b);return ra(d)})}
+function ta(a){function b(c){(c.style.fontFamily||getComputedStyle(c).fontFamily).split(",").forEach(e=>{d.add(e.trim().replace(/["']/g,""))});Array.from(c.children).forEach(e=>{e instanceof HTMLElement&&b(e)})}const d=new Set;b(a);return d}function ua(a,b){return t(function*(){const d=yield sa(a,b),c=ta(a);return(yield Promise.all(d.filter(e=>c.has(e.style.fontFamily.trim().replace(/["']/g,""))).map(e=>R(e.cssText,e.parentStyleSheet?e.parentStyleSheet.href:null,b)))).join("\n")})}
+function va(a,b){return t(function*(){const d=b.j!=null?b.j:b.K?null:yield ua(a,b);if(d){const c=document.createElement("style");c.appendChild(document.createTextNode(d));a.firstChild?a.insertBefore(c,a.firstChild):a.appendChild(c)}})};function wa(a,b={}){return t(function*(){const {width:d,height:c}=A(a,b),e=yield P(a,b,!0);yield va(e,b);yield T(e,b);u(e,b);return yield D(e,d,c)})}
+function xa(a,b={}){return t(function*(){const {width:d,height:c}=A(a,b);var e=yield wa(a,b);e=yield B(e);const f=document.createElement("canvas"),g=f.getContext("2d"),k=b.G||window.devicePixelRatio||1,m=b.h||d,q=b.g||c;f.width=m*k;f.height=q*k;!b.J&&(f.width>16384||f.height>16384)&&(f.width>16384&&f.height>16384?f.width>f.height?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=16384):f.width>16384?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=
+16384));f.style.width=`${m}`;f.style.height=`${q}`;b.backgroundColor&&(g.fillStyle=b.backgroundColor,g.fillRect(0,0,f.width,f.height));g.drawImage(e,0,0,f.width,f.height);return f})}function ya(a,b={}){return t(function*(){return(yield xa(a,b)).toDataURL()})};const za=["gemini.google.com","corp.google.com","proxy.googlers.com"];function Y(){return document.body.querySelectorAll('[class*="animate"]').length>0}function Z(a){return t(function*(){try{return yield ya(a,{h:a.offsetWidth,g:a.offsetHeight})}catch(d){var b=a.offsetHeight;const c=document.createElement("canvas");c.width=a.offsetWidth;c.height=b;return c.toDataURL("image/png")}})}
+function Aa(){return t(function*(){const a=document.body.offsetWidth,b=document.body.offsetHeight,d=document.body.cloneNode(!0);d.querySelectorAll('[class*="animate"]').forEach(c=>{c.classList.remove(...Array.from(c.classList).filter(e=>e.startsWith("animate")))});d.style.width=`${a}px`;d.style.height=`${b}px`;return d})}
+function Ba(a){return t(function*(){let b=document.body;if(Y()){var d=yield Aa();b=d;document.body.appendChild(d)}d=yield Z(b);Y()&&document.body.removeChild(b);window.parent.postMessage({type:"SEND_SCREENSHOT",image:d,topOffset:document.documentElement.scrollTop},a.origin)})}function Ca(a){return t(function*(){const b={type:"SEND_SCREENSHOT_FOR_DATA_VISUALIZATION",image:yield Z(document.body),topOffset:0};window.parent.postMessage(b,a.origin)})}
+window.addEventListener("message",a=>t(function*(){if(za.some(d=>a.origin.includes(d))){var b=a.data;b&&(b.type==="MAKE_SCREENSHOT"&&(yield Ba(a)),b.type==="MAKE_SCREENSHOT_FOR_DATA_VISUALIZATION"&&(yield Ca(a)))}}));
+</script><script>(function() {
+  // Ensure this script is executed only once
+  if (window.firebaseAuthBridgeScriptLoaded) {
+    return;
+  }
+  window.firebaseAuthBridgeScriptLoaded = true;
+
+  let nextTokenPromiseId = 0;
+
+  // Stores { resolve, reject } for ongoing token requests
+  const pendingTokenPromises = {};
+
+  // Listen for messages from the Host Application
+  window.addEventListener('message', function(event) {
+
+    const messageData = event.data;
+
+  if (messageData && messageData.type === 'RESOLVE_NEW_FIREBASE_TOKEN') {
+      const { success, token, error, promiseId } = messageData ?? {};
+      if (pendingTokenPromises[promiseId]) {
+        if (success) {
+          pendingTokenPromises[promiseId].resolve(token);
+        } else {
+          pendingTokenPromises[promiseId].reject(new Error(error || 'Token refresh failed from host.'));
+        }
+        delete pendingTokenPromises[promiseId];
+      }
+    }
+  });
+
+  // Expose a function for the Generated App to request a new Firebase token
+  window.requestNewFirebaseToken = function() {
+    const currentPromiseId = nextTokenPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingTokenPromises[currentPromiseId] = { resolve, reject };
+    });
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({
+        type: 'REQUEST_NEW_FIREBASE_TOKEN',
+        promiseId: currentPromiseId
+      }, '*');
+    } else {
+      pendingTokenPromises[currentPromiseId].reject(new Error('No parent window to request token from.'));
+      delete pendingTokenPromises[currentPromiseId];
+    }
+    return promise;
+  };
+})();</script><script>
+let realOriginalGetUserMedia = null;
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  realOriginalGetUserMedia = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
+}
+
+(function() {
+  if (navigator.mediaDevices && navigator.mediaDevices.__proto__) {
+    try {
+      Object.defineProperty(navigator.mediaDevices.__proto__, 'getUserMedia', {
+        get: function() {
+          return undefined; // Or throw an error
+        },
+        configurable: false
+      });
+    } catch (error) {
+      console.error("Error defining prototype getter:", error);
+    }
+  }
+})();
+
+(function() {
+  const pendingMediaResolvers = {};
+  let nextMediaPromiseId = 0;
+
+  function requestMediaPermissions(constraints) {
+    const mediaPromiseId = nextMediaPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingMediaResolvers[mediaPromiseId] = (granted) => {
+        delete pendingMediaResolvers[mediaPromiseId];
+        resolve(granted);
+      };
+    });
+
+    window.parent.postMessage({
+      type: 'requestMediaPermission',
+      constraints: constraints,
+      promiseId: mediaPromiseId,
+    }, '*');
+
+    return promise;
+  }
+
+  let originalGetUserMedia = realOriginalGetUserMedia;
+
+  function interceptGetUserMedia() {
+    if (navigator.mediaDevices) {
+      Object.defineProperty(navigator.mediaDevices, 'getUserMedia', {
+        value: function(constraints) {
+          return requestMediaPermissions(constraints).then((granted) => {
+            if (granted) {
+              if (originalGetUserMedia) {
+                return originalGetUserMedia(constraints);
+              } else {
+                throw new Error("Original getUserMedia not available.");
+              }
+            } else {
+              throw new DOMException('Permission denied', 'NotAllowedError');
+            }
+          });
+        },
+        writable: false,
+        configurable: false
+      });
+    }
+  }
+
+  interceptGetUserMedia();
+
+  const observer = new MutationObserver(function(mutationsList, observer) {
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'reconfigured' && mutation.name === 'getUserMedia' && mutation.object === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'attributes' && mutation.attributeName === 'getUserMedia' && mutation.target === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'childList' && mutation.addedNodes) {
+        mutation.addedNodes.forEach(node => {
+          if (node === navigator.mediaDevices) {
+            interceptGetUserMedia();
+          }
+        });
+      }
+    }
+  });
+
+  function interceptSpeechRecognition() {
+    if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
+      return;
+    }
+
+    const OriginalSpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    const SpeechRecognitionWrapper = function(...args) {
+      const recognizer = new OriginalSpeechRecognition(...args);
+      const originalStart = recognizer.start.bind(recognizer);
+
+      recognizer.start = function() {
+        requestMediaPermissions({ audio: true }).then(granted => {
+          if (granted) {
+            originalStart();
+          } else {
+            const errorEvent = new SpeechRecognitionErrorEvent('error');
+            errorEvent.error = 'not-allowed'; // This is the standard error for permission denial.
+            recognizer.dispatchEvent(errorEvent);
+          }
+        });
+      };
+
+      return recognizer;
+    };
+
+    SpeechRecognitionWrapper.prototype = OriginalSpeechRecognition.prototype;
+    SpeechRecognitionWrapper.prototype.constructor = SpeechRecognitionWrapper;
+
+    if (window.SpeechRecognition) {
+      window.SpeechRecognition = SpeechRecognitionWrapper;
+    }
+    if (window.webkitSpeechRecognition) {
+      window.webkitSpeechRecognition = SpeechRecognitionWrapper;
+    }
+  }
+
+  interceptSpeechRecognition();
+
+  window.addEventListener('message', function(event) {
+    if (event.data) {
+      if (event.data.type === 'resolveMediaPermission') {
+        const { promiseId, granted } = event.data;
+        if (pendingMediaResolvers[promiseId]) {
+          pendingMediaResolvers[promiseId](granted);
+        }
+      }
+    }
+  });
+
+})();</script><script>((function(modelInformation) {
+  const originalFetch = window.fetch;
+  // TODO: b/421908508 - Move these out of the script and match all generative AI model calls.
+  let googleLlmBaseApiUrls = [
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':streamGenerateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageEditModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageTransformModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.ttsModelName + ':generateContent',
+  ];
+  modelInformation.deprecatedTextModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+    );
+  });
+  modelInformation.deprecatedImageModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predict',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predictLongRunning',
+    );
+  });
+
+  const pendingFetchResolvers = {};
+  let nextPromiseId = 0;
+
+  function handleStringInput(input, optionsArgument) {
+    const actualUrl = input;
+    const fetchCallArgs = [actualUrl, optionsArgument];
+    const effectiveOptions = optionsArgument || {};
+    const bodyForApiKeyCheck = effectiveOptions.body;
+    const bodyForPostMessage = effectiveOptions.body;
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  function handleRequestInput(input, optionsArgument) {
+    const actualUrl = input.url;
+    const fetchCallArgs = [input, optionsArgument];
+    const effectiveOptions = { method: input.method, headers: new Headers(input.headers) };
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (optionsArgument) {
+      if (optionsArgument.method) effectiveOptions.method = optionsArgument.method;
+      if (optionsArgument.headers) effectiveOptions.headers = new Headers(optionsArgument.headers);
+      if ('body' in optionsArgument) {
+        bodyForApiKeyCheck = optionsArgument.body;
+        bodyForPostMessage = optionsArgument.body;
+      } else {
+        bodyForApiKeyCheck = undefined;
+        bodyForPostMessage = input.body;
+      }
+    } else {
+      bodyForApiKeyCheck = undefined;
+      bodyForPostMessage = input.body;
+    }
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  window.fetch = function(input, optionsArgument) {
+    let actualUrl;
+    let fetchCallArgs;
+    let effectiveOptions = {};
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (typeof input === 'string') {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleStringInput(input, optionsArgument));
+    } else if (input instanceof Request) {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleRequestInput(input, optionsArgument));
+    } else {
+      return originalFetch.apply(window, [input, optionsArgument]);
+    }
+
+    effectiveOptions.method = effectiveOptions.method || 'GET';
+    if (!effectiveOptions.headers) {
+      effectiveOptions.headers = new Headers();
+    }
+
+
+    if (typeof actualUrl === 'string' && googleLlmBaseApiUrls.some((url) => actualUrl.startsWith(url))) {
+      let apiKeyIsNull = true;
+
+      const regex = new RegExp("models/([^:]+)");
+      const modelNameMatch = actualUrl.match(regex);
+      const modelName = modelNameMatch ? modelNameMatch[1] : 'unspecified';
+
+
+      try {
+        const urlObject = new URL(actualUrl);  // Use URL object for robust parsing
+        const apiKeyParam = urlObject.searchParams.get('key');
+        if (apiKeyParam) {
+          apiKeyIsNull = false;
+        }
+      } catch (e) {
+        // Continue checks even if URL parsing fails
+      }
+
+      if (apiKeyIsNull && effectiveOptions.headers) {
+        const h = new Headers(effectiveOptions.headers);
+        const apiKeyHeaderValue = h.get('X-API-Key') || h.get('x-api-key');
+        if (apiKeyHeaderValue) {
+          apiKeyIsNull = false;
+          return originalFetch.apply(window, fetchCallArgs);
+        }
+      }
+
+      if (apiKeyIsNull && effectiveOptions.method && ['POST', 'PUT', 'PATCH'].includes(effectiveOptions.method.toUpperCase()) && typeof bodyForApiKeyCheck === 'string') {
+        try {
+          const bodyData = JSON.parse(bodyForApiKeyCheck);
+          if (bodyData && bodyData.apiKey) {
+            apiKeyIsNull = false;
+            return originalFetch.apply(window, fetchCallArgs);
+          }
+        } catch (e) {
+          // Ignore JSON parsing errors
+        }
+      }
+
+      if(apiKeyIsNull) {
+        const promiseId = nextPromiseId++;
+        const promise = new Promise((resolve) => {
+          pendingFetchResolvers[promiseId] = (resolvedResponse) => {
+            delete pendingFetchResolvers[promiseId];
+            resolve(resolvedResponse);
+          };
+        });
+
+        let serializedBodyForPostMessage;
+        if (typeof bodyForPostMessage === 'string' || bodyForPostMessage == null) {
+            serializedBodyForPostMessage = bodyForPostMessage;
+        } else if (bodyForPostMessage instanceof ReadableStream) {
+            serializedBodyForPostMessage = null;
+        } else {
+            try {
+                serializedBodyForPostMessage = JSON.stringify(bodyForPostMessage);
+            } catch (e) {
+                serializedBodyForPostMessage = null;
+            }
+        }
+
+        const messageOptions = {
+            method: effectiveOptions.method,
+            headers: Object.fromEntries(new Headers(effectiveOptions.headers).entries()),
+            body: serializedBodyForPostMessage
+        };
+
+        window.parent.postMessage({
+          type: 'requestFetch',
+          url: actualUrl,
+          modelName: modelName,
+          options: messageOptions,
+          promiseId: promiseId,
+        }, '*');
+
+        return promise;
+      }
+      return originalFetch.apply(window, fetchCallArgs);
+    }
+    return originalFetch.apply(window, fetchCallArgs);
+  };
+
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'resolveFetch') {
+      const { promiseId, response } = event.data;
+      if (pendingFetchResolvers[promiseId]) {
+        try {
+          const reconstructedResponse = new Response(response.body, {
+            status: response.status,
+            statusText: response.statusText,
+            headers: new Headers(response.headers),
+          });
+          pendingFetchResolvers[promiseId](reconstructedResponse);
+        } catch (error) {
+          pendingFetchResolvers[promiseId](new Response(null, { status: 500, statusText: "Interceptor Response Reconstruction Error" }));
+        }
+      }
+    }
+  });
+
+}))({"textModelName":"gemini-2.5-flash-preview-09-2025","imageModelName":"imagen-4.0-generate-001","imageEditModelName":"gemini-2.5-flash-image-preview","imageTransformModelName":"gemini-3-pro-image-preview-11-2025","videoModelName":"veo-2.0-generate-001","ttsModelName":"gemini-2.5-flash-preview-tts","deprecatedTextModelNames":["gemini-2.0-flash","gemini-2.5-flash-preview-04-17","gemini-2.5-flash-preview-05-20"],"deprecatedImageModelNames":["imagen-3.0-generate-001","imagen-3.0-generate-002"]})</script><script>(function() {
+  const originalConsoleLog = console.log;
+  const originalConsoleError = console.error;
+
+    /**
+   * Normalizes an error event or a promise rejection reason into a structured error object.
+   * @param {*} errorEventOrReason The error object or reason.
+   * @return {object} Structured error data { message, name, stack }.
+   */
+  function getErrorObject(errorEventOrReason) {
+    if (errorEventOrReason instanceof Error) {
+      return {
+        message: errorEventOrReason.message,
+        name: errorEventOrReason.name,
+        stack: errorEventOrReason.stack,
+      };
+    }
+    // Fallback for non-Error objects.
+    try {
+      return {
+        message: JSON.stringify(errorEventOrReason),
+        name: 'UnknownErrorType',
+        stack: null,
+      };
+    } catch (e) {
+      return {
+        message: String(errorEventOrReason),
+        name: 'UnknownErrorTypeNonStringifiable',
+        stack: null,
+      };
+    }
+  }
+
+  /**
+   * Converts an array of arguments (from log/error) into a single string.
+   * Handles Error objects specially to include their message and stack.
+   * @param {Array<*>} args - Arguments passed to console methods.
+   * @return {string} A string representation of the arguments.
+   */
+  function stringifyArgs(args) {
+    return args
+      .map((arg) => {
+        if (arg instanceof Error) {
+          const {message, stack} = arg;
+          return `Error: ${message}${stack ? ('\nStack: ' + stack) : ''}`;
+        }
+        if (typeof arg === 'object' && arg !== null) {
+          try {
+            return JSON.stringify(arg);
+          } catch (error) {
+            return '[Circular Object]';
+          }
+        } else {
+          return String(arg);
+        }
+      })
+      .join(' ');
+  }
+
+  console.log = function(...args) {
+    const logString = stringifyArgs(args);
+    window.parent.postMessage({ type: 'log', message: logString }, '*');
+    originalConsoleLog.apply(console, args);
+  };
+
+  console.error = function(...args) {
+    let errorData;
+    if (args.length > 0 && args[0] instanceof Error) {
+      const err = args[0];
+      // If the first arg is an Error, capture its details.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        ...getErrorObject(err),
+        rawArgsString: stringifyArgs(args.slice(1)),
+        timestamp: new Date().toISOString(),
+      };
+    } else {
+      // If not an Error object, treat all args as a general error message.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        message: stringifyArgs(args),
+        name: 'ConsoleLoggedError',
+        stack: null,
+        timestamp: new Date().toISOString(),
+      };
+    }
+    window.parent.postMessage(errorData, '*');
+    originalConsoleError.apply(console, args);
+  };
+
+  // Listen for global unhandled synchronous errors.
+  window.addEventListener('error', function(event) {
+    const errorDetails = event.error ? getErrorObject(event.error) : {
+      message: event.message,
+      name: 'GlobalError',
+      stack: null,
+      filename: event.filename,
+      lineno: event.lineno,
+      colno: event.colno,
+    };
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'global',
+      ...errorDetails,
+      message: errorDetails.message || event.message,
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+  // Listen for unhandled promise rejections (asynchronous errors).
+  window.addEventListener('unhandledrejection', function(event) {
+    const errorDetails = getErrorObject(event.reason);
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'unhandledrejection',
+      ...errorDetails,
+      message: errorDetails.message || 'Unhandled Promise Rejection',
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第33回定期演奏会 係分担・進行管理アプリ ✨ AIアシスト版</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" crossorigin="anonymous"></script>
+    
+    <!-- Google Fonts: Noto Sans JP -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;display=swap" rel="stylesheet">
+
+    <!-- Chosen Palette: Warm Neutrals & Soft Earth Tones -->
+    <!-- Application Structure Plan: 
+         1. Header & Context: Clear title, date, venue information. Included a built-in Download Button for user convenience.
+         2. Critical Notes Dashboard: Immediate visibility of last year's reflections.
+         3. AI Assistant Section: Interactive LLM-powered tools for troubleshooting and communication.
+         4. Analytics Dashboard: Visualizing task distribution.
+         5. Interactive Timeline: Role-based filtering of the schedule.
+         6. Role Details: Reference table for members.
+    -->
+    <!-- Visualization & Content Choices:
+         - AI Integration: Using gemini-2.5-flash-preview-09-2025 for context-aware support.
+         - Charts: Chart.js for workload visualization.
+         - Interaction: Role filtering, AI generation, and a direct file download trigger.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #FDFBF7;
+            color: #4A4A4A;
+        }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #9CA3AF; }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .highlight-card {
+            border-left-width: 4px;
+            transform: scale(1.01);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* AI Assistant specific styles */
+        .ai-result {
+            background-image: linear-gradient(to bottom right, #ffffff, #f9fafb);
+            border-left: 4px solid #8b5cf6;
+        }
+        
+        .loading-spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #8b5cf6;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.top-0{top:0px}.-left-\[9px\]{left:-9px}.top-6{top:1.5rem}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.ml-3{margin-left:0.75rem}.mt-1{margin-top:0.25rem}.mt-12{margin-top:3rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mb-3{margin-bottom:0.75rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-5{height:1.25rem}.w-full{width:100%}.w-5{width:1.25rem}.min-w-full{min-width:100%}.max-w-4xl{max-width:56rem}.max-w-none{max-width:none}.flex-1{flex:1 1 0%}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.items-baseline{align-items:baseline}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-2{gap:0.5rem}.gap-4{gap:1rem}.gap-8{gap:2rem}.gap-3{gap:0.75rem}.space-x-3 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.75rem * var(--tw-space-x-reverse));margin-left:calc(0.75rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-12 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(3rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(3rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-8 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem * var(--tw-space-y-reverse))}.divide-y > :not([hidden]) ~ :not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px * calc(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px * var(--tw-divide-y-reverse))}.divide-stone-100 > :not([hidden]) ~ :not([hidden]){--tw-divide-opacity:1;border-color:rgb(245 245 244 / var(--tw-divide-opacity, 1))}.overflow-x-auto{overflow-x:auto}.whitespace-pre-wrap{white-space:pre-wrap}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded{border-radius:0.25rem}.border{border-width:1px}.border-4{border-width:4px}.border-b{border-bottom-width:1px}.border-l-2{border-left-width:2px}.border-l-4{border-left-width:4px}.border-blue-400{--tw-border-opacity:1;border-color:rgb(96 165 250 / var(--tw-border-opacity, 1))}.border-emerald-400{--tw-border-opacity:1;border-color:rgb(52 211 153 / var(--tw-border-opacity, 1))}.border-orange-400{--tw-border-opacity:1;border-color:rgb(251 146 60 / var(--tw-border-opacity, 1))}.border-purple-100{--tw-border-opacity:1;border-color:rgb(243 232 255 / var(--tw-border-opacity, 1))}.border-purple-200{--tw-border-opacity:1;border-color:rgb(233 213 255 / var(--tw-border-opacity, 1))}.border-purple-400{--tw-border-opacity:1;border-color:rgb(192 132 252 / var(--tw-border-opacity, 1))}.border-stone-100{--tw-border-opacity:1;border-color:rgb(245 245 244 / var(--tw-border-opacity, 1))}.border-stone-200{--tw-border-opacity:1;border-color:rgb(231 229 228 / var(--tw-border-opacity, 1))}.border-blue-200{--tw-border-opacity:1;border-color:rgb(191 219 254 / var(--tw-border-opacity, 1))}.border-emerald-200{--tw-border-opacity:1;border-color:rgb(167 243 208 / var(--tw-border-opacity, 1))}.border-red-200{--tw-border-opacity:1;border-color:rgb(254 202 202 / var(--tw-border-opacity, 1))}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.border-yellow-200{--tw-border-opacity:1;border-color:rgb(254 240 138 / var(--tw-border-opacity, 1))}.bg-purple-100{--tw-bg-opacity:1;background-color:rgb(243 232 255 / var(--tw-bg-opacity, 1))}.bg-purple-600{--tw-bg-opacity:1;background-color:rgb(147 51 234 / var(--tw-bg-opacity, 1))}.bg-stone-200{--tw-bg-opacity:1;background-color:rgb(231 229 228 / var(--tw-bg-opacity, 1))}.bg-stone-50{--tw-bg-opacity:1;background-color:rgb(250 250 249 / var(--tw-bg-opacity, 1))}.bg-stone-800{--tw-bg-opacity:1;background-color:rgb(41 37 36 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-emerald-50{--tw-bg-opacity:1;background-color:rgb(236 253 245 / var(--tw-bg-opacity, 1))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity, 1))}.bg-stone-100{--tw-bg-opacity:1;background-color:rgb(245 245 244 / var(--tw-bg-opacity, 1))}.bg-stone-300{--tw-bg-opacity:1;background-color:rgb(214 211 209 / var(--tw-bg-opacity, 1))}.bg-yellow-50{--tw-bg-opacity:1;background-color:rgb(254 252 232 / var(--tw-bg-opacity, 1))}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-8{padding-top:2rem;padding-bottom:2rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.pl-3{padding-left:0.75rem}.pb-2{padding-bottom:0.5rem}.pl-8{padding-left:2rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[10px\]{font-size:10px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.tracking-tight{letter-spacing:-0.025em}.tracking-widest{letter-spacing:0.1em}.text-purple-600{--tw-text-opacity:1;color:rgb(147 51 234 / var(--tw-text-opacity, 1))}.text-purple-700{--tw-text-opacity:1;color:rgb(126 34 206 / var(--tw-text-opacity, 1))}.text-stone-300{--tw-text-opacity:1;color:rgb(214 211 209 / var(--tw-text-opacity, 1))}.text-stone-400{--tw-text-opacity:1;color:rgb(168 162 158 / var(--tw-text-opacity, 1))}.text-stone-500{--tw-text-opacity:1;color:rgb(120 113 108 / var(--tw-text-opacity, 1))}.text-stone-600{--tw-text-opacity:1;color:rgb(87 83 78 / var(--tw-text-opacity, 1))}.text-stone-700{--tw-text-opacity:1;color:rgb(68 64 60 / var(--tw-text-opacity, 1))}.text-stone-800{--tw-text-opacity:1;color:rgb(41 37 36 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-blue-700{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity, 1))}.text-emerald-700{--tw-text-opacity:1;color:rgb(4 120 87 / var(--tw-text-opacity, 1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.text-red-700{--tw-text-opacity:1;color:rgb(185 28 28 / var(--tw-text-opacity, 1))}.text-yellow-800{--tw-text-opacity:1;color:rgb(133 77 14 / var(--tw-text-opacity, 1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-60{opacity:0.6}.opacity-100{opacity:1}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.delay-100{transition-delay:100ms}.delay-200{transition-delay:200ms}.delay-300{transition-delay:300ms}.selection\:bg-orange-100 *::selection{--tw-bg-opacity:1;background-color:rgb(255 237 213 / var(--tw-bg-opacity, 1))}.selection\:text-orange-900 *::selection{--tw-text-opacity:1;color:rgb(124 45 18 / var(--tw-text-opacity, 1))}.selection\:bg-orange-100::selection{--tw-bg-opacity:1;background-color:rgb(255 237 213 / var(--tw-bg-opacity, 1))}.selection\:text-orange-900::selection{--tw-text-opacity:1;color:rgb(124 45 18 / var(--tw-text-opacity, 1))}.hover\:bg-blue-100:hover{--tw-bg-opacity:1;background-color:rgb(219 234 254 / var(--tw-bg-opacity, 1))}.hover\:bg-green-100:hover{--tw-bg-opacity:1;background-color:rgb(220 252 231 / var(--tw-bg-opacity, 1))}.hover\:bg-purple-50:hover{--tw-bg-opacity:1;background-color:rgb(250 245 255 / var(--tw-bg-opacity, 1))}.hover\:bg-purple-700:hover{--tw-bg-opacity:1;background-color:rgb(126 34 206 / var(--tw-bg-opacity, 1))}.hover\:bg-red-100:hover{--tw-bg-opacity:1;background-color:rgb(254 226 226 / var(--tw-bg-opacity, 1))}.hover\:bg-stone-50:hover{--tw-bg-opacity:1;background-color:rgb(250 250 249 / var(--tw-bg-opacity, 1))}.hover\:bg-stone-700:hover{--tw-bg-opacity:1;background-color:rgb(68 64 60 / var(--tw-bg-opacity, 1))}.hover\:bg-yellow-100:hover{--tw-bg-opacity:1;background-color:rgb(254 249 195 / var(--tw-bg-opacity, 1))}.hover\:text-blue-700:hover{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity, 1))}.hover\:text-green-700:hover{--tw-text-opacity:1;color:rgb(21 128 61 / var(--tw-text-opacity, 1))}.hover\:text-red-700:hover{--tw-text-opacity:1;color:rgb(185 28 28 / var(--tw-text-opacity, 1))}.hover\:text-stone-600:hover{--tw-text-opacity:1;color:rgb(87 83 78 / var(--tw-text-opacity, 1))}.hover\:text-yellow-700:hover{--tw-text-opacity:1;color:rgb(161 98 7 / var(--tw-text-opacity, 1))}.hover\:shadow-md:hover{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.focus\:border-purple-400:focus{--tw-border-opacity:1;border-color:rgb(192 132 252 / var(--tw-border-opacity, 1))}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-purple-200:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(233 213 255 / var(--tw-ring-opacity, 1))}@media (min-width: 640px){.sm\:block{display:block}}@media (min-width: 768px){.md\:ml-6{margin-left:1.5rem}.md\:mt-0{margin-top:0px}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:pl-10{padding-left:2.5rem}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-sm{font-size:0.875rem;line-height:1.25rem}.md\:text-xs{font-size:0.75rem;line-height:1rem}}</style></head>
+<body class="antialiased selection:bg-orange-100 selection:text-orange-900">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50 border-b border-stone-200">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div>
+                <h1 class="text-xl md:text-2xl font-bold text-stone-800 tracking-tight">🎶 第33回定期演奏会</h1>
+                <p class="text-xs md:text-sm text-stone-500 mt-1">2026年3月31日(火) @ 鎌倉芸術館 小ホール</p>
+            </div>
+            <div class="flex items-center gap-2">
+                <!-- Built-in Download Button -->
+                <button onclick="downloadSelf()" class="bg-stone-800 hover:bg-stone-700 text-white text-[10px] md:text-xs font-bold px-3 py-2 rounded-lg transition flex items-center gap-1 shadow-sm">
+                    <span>💾 ファイルを保存</span>
+                </button>
+                <div class="hidden sm:block text-right">
+                    <span class="inline-block bg-purple-100 text-purple-700 text-[10px] px-2 py-1 rounded-full border border-purple-200 font-bold">✨ AIアシスト</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-12">
+
+        <!-- Section 1: AI Assistant (Gemini Integration) -->
+        <section class="fade-in bg-white rounded-2xl p-6 shadow-sm border border-purple-100">
+            <div class="flex items-center gap-2 mb-4">
+                <span class="text-2xl">✨</span>
+                <h2 class="text-lg font-bold text-stone-700">AI運営アシスタント</h2>
+            </div>
+            <p class="text-sm text-stone-600 mb-6">Gemini AIが当日のトラブル解決や、スタッフ間の円滑なコミュニケーションをサポートします。</p>
+
+            <div class="space-y-4">
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="flex-1">
+                        <label class="block text-xs font-bold text-stone-500 uppercase mb-2">困りごと・お願いしたいこと</label>
+                        <textarea id="ai-input" rows="2" class="w-full p-3 border border-stone-200 rounded-xl text-sm focus:ring-2 focus:ring-purple-200 focus:border-purple-400 outline-none transition" placeholder="例: 当日券が完売しそうです / 開演5分前のアナウンス原稿を作って"></textarea>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="askAI('troubleshoot')" id="btn-ai-trouble" class="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg text-sm font-medium hover:bg-purple-700 transition shadow-sm">
+                        <span>✨ トラブル解決アドバイス</span>
+                        <div id="loader-trouble" class="loading-spinner hidden"></div>
+                    </button>
+                    <button onclick="askAI('announce')" id="btn-ai-announce" class="flex items-center gap-2 px-4 py-2 bg-white border border-purple-200 text-purple-700 rounded-lg text-sm font-medium hover:bg-purple-50 transition shadow-sm">
+                        <span>✨ 挨拶・アナウンス作成</span>
+                        <div id="loader-announce" class="loading-spinner hidden"></div>
+                    </button>
+                    <button onclick="askAI('checklist')" id="btn-ai-check" class="flex items-center gap-2 px-4 py-2 bg-white border border-stone-200 text-stone-700 rounded-lg text-sm font-medium hover:bg-stone-50 transition shadow-sm">
+                        <span>✨ AIタスク抽出</span>
+                        <div id="loader-check" class="loading-spinner hidden"></div>
+                    </button>
+                </div>
+
+                <div id="ai-result-container" class="hidden mt-6 p-5 ai-result rounded-xl border border-stone-100 shadow-inner">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-xs font-bold text-purple-600 uppercase tracking-widest">AIからの提案</span>
+                        <button onclick="document.getElementById('ai-result-container').classList.add('hidden')" class="text-stone-400 hover:text-stone-600">✕</button>
+                    </div>
+                    <div id="ai-response-text" class="text-sm text-stone-700 leading-relaxed whitespace-pre-wrap"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Important Notices -->
+        <section class="fade-in">
+            <div class="prose prose-stone max-w-none">
+                <h2 class="text-lg font-bold text-stone-700 border-l-4 border-orange-400 pl-3 mb-4">運営の心得</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-stone-100 flex items-start space-x-3 transition hover:shadow-md">
+                    <div class="text-2xl">📸</div>
+                    <div>
+                        <h3 class="font-bold text-stone-800 text-sm mb-1">写真による記録徹底</h3>
+                        <p class="text-xs text-stone-500 leading-relaxed">設営前に「楽屋」と「ホワイエ」の写真を撮影。退館時に100%元通りであることを確認します。</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-stone-100 flex items-start space-x-3 transition hover:shadow-md">
+                    <div class="text-2xl">🎫</div>
+                    <div>
+                        <h3 class="font-bold text-stone-800 text-sm mb-1">チケット色別誘導</h3>
+                        <p class="text-xs text-stone-500 leading-relaxed">①来賓(緑) ②一般(黄) ③小(ピンク) の優先順位で誘導し、混雑を緩和します。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Analytics Dashboard -->
+        <section class="fade-in delay-100">
+            <h2 class="text-lg font-bold text-stone-700 border-l-4 border-blue-400 pl-3 mb-4">業務負荷分析</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                    <h3 class="text-center text-xs font-bold text-stone-500 mb-2">係別タスク負担</h3>
+                    <div class="chart-container"><canvas id="taskDistributionChart" width="750" height="375" style="display: block; box-sizing: border-box; height: 300px; width: 600px;"></canvas></div>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                    <h3 class="text-center text-xs font-bold text-stone-500 mb-2">時間帯別アクティビティ</h3>
+                    <div class="chart-container"><canvas id="activityHeatmapChart" width="750" height="375" style="display: block; box-sizing: border-box; height: 300px; width: 600px;"></canvas></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Interactive Timeline -->
+        <section class="fade-in delay-200" id="schedule-section">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-6">
+                <h2 class="text-lg font-bold text-stone-700 border-l-4 border-emerald-400 pl-3">当日のタイムライン</h2>
+                <div class="flex flex-wrap gap-2 mt-4 md:mt-0 justify-center">
+                    <button onclick="filterSchedule('all')" id="btn-all" class="filter-btn active px-4 py-2 rounded-lg text-sm font-bold bg-stone-800 text-white transition shadow-md">全部</button>
+                    <button onclick="filterSchedule('hq')" id="btn-hq" class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-stone-200 text-stone-600 hover:bg-red-100 hover:text-red-700 transition">本部・接待</button>
+                    <button onclick="filterSchedule('accounting')" id="btn-accounting" class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-stone-200 text-stone-600 hover:bg-green-100 hover:text-green-700 transition">会計</button>
+                    <button onclick="filterSchedule('reception')" id="btn-reception" class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-stone-200 text-stone-600 hover:bg-blue-100 hover:text-blue-700 transition">受付・P</button>
+                    <button onclick="filterSchedule('venue')" id="btn-venue" class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-stone-200 text-stone-600 hover:bg-yellow-100 hover:text-yellow-700 transition">会場</button>
+                </div>
+            </div>
+            <div class="relative border-l-2 border-stone-200 ml-3 md:ml-6 space-y-8" id="timeline-container">
+                    <div class="relative pl-8 md:pl-10 py-2">
+                        <div class="absolute -left-[9px] top-6 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
+                        <div class="bg-white rounded-lg border border-stone-200 p-4 shadow-sm">
+                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
+                                <span class="text-lg font-bold text-stone-800">09:00</span>
+                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">会場入り</span>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="opacity-100  p-3 rounded border border-red-200 bg-red-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-red-700">本部・接待</div>
+                            <div class="text-xs text-stone-700 leading-snug">集合、ネームホルダー準備、OBOG出欠確認、<span class="text-red-500 font-bold">★</span>楽屋の写真撮影（原状復帰用）</div>
+                        </div>
+                    
+                        <div class="opacity-100  p-3 rounded border border-emerald-200 bg-emerald-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-emerald-700">会計</div>
+                            <div class="text-xs text-stone-700 leading-snug">集合、謝礼金準備、DGOB支払い準備</div>
+                        </div>
+                    
+                        <div class="opacity-100  p-3 rounded border border-blue-200 bg-blue-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-blue-700">受付・P</div>
+                            <div class="text-xs text-stone-700 leading-snug">集合、ホワイエ備品確認、<span class="text-red-500 font-bold">★</span>ホワイエの写真撮影（原状復帰用）</div>
+                        </div>
+                    
+                        <div class="opacity-100  p-3 rounded border border-yellow-200 bg-yellow-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-yellow-800">会場</div>
+                            <div class="text-xs text-stone-700 leading-snug">集合、会場内見回り、忘れ物点検用チェック</div>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+                
+                    <div class="relative pl-8 md:pl-10 py-2">
+                        <div class="absolute -left-[9px] top-6 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
+                        <div class="bg-white rounded-lg border border-stone-200 p-4 shadow-sm">
+                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
+                                <span class="text-lg font-bold text-stone-800">09:30</span>
+                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">業者入り</span>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="opacity-100  p-3 rounded border border-red-200 bg-red-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-red-700">本部・接待</div>
+                            <div class="text-xs text-stone-700 leading-snug">外部講師・業者様対応、駐車券渡し、ロゼット管理</div>
+                        </div>
+                    
+                        <div class="opacity-100  p-3 rounded border border-emerald-200 bg-emerald-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-emerald-700">会計</div>
+                            <div class="text-xs text-stone-700 leading-snug">業者支払い（吉岡様等）</div>
+                        </div>
+                    
+                        <div class="opacity-100  p-3 rounded border border-blue-200 bg-blue-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-blue-700">受付・P</div>
+                            <div class="text-xs text-stone-700 leading-snug">案内板・看板の準備、差出人カード作成</div>
+                        </div>
+                    
+                        <div class="opacity-100  p-3 rounded border border-yellow-200 bg-yellow-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-yellow-800">会場</div>
+                            <div class="text-xs text-stone-700 leading-snug">楽器搬入サポート、動線確認</div>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+                
+                    <div class="relative pl-8 md:pl-10 py-2">
+                        <div class="absolute -left-[9px] top-6 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
+                        <div class="bg-white rounded-lg border border-stone-200 p-4 shadow-sm">
+                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
+                                <span class="text-lg font-bold text-stone-800">10:30</span>
+                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">リハーサル開始</span>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="opacity-100  p-3 rounded border border-red-200 bg-red-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-red-700">本部・接待</div>
+                            <div class="text-xs text-stone-700 leading-snug">お菓子・飲み物のセッティング、電報リスト作成</div>
+                        </div>
+                    
+                        <div class="opacity-100  p-3 rounded border border-emerald-200 bg-emerald-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-emerald-700">会計</div>
+                            <div class="text-xs text-stone-700 leading-snug">請求書の確認</div>
+                        </div>
+                    
+                        <div class="opacity-100  p-3 rounded border border-blue-200 bg-blue-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-blue-700">受付・P</div>
+                            <div class="text-xs text-stone-700 leading-snug">受付カウンター設営準備</div>
+                        </div>
+                    
+                        <div class="opacity-100  p-3 rounded border border-yellow-200 bg-yellow-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-yellow-800">会場</div>
+                            <div class="text-xs text-stone-700 leading-snug">客席内見回り</div>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+                
+                    <div class="relative pl-8 md:pl-10 py-2">
+                        <div class="absolute -left-[9px] top-6 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
+                        <div class="bg-white rounded-lg border border-stone-200 p-4 shadow-sm">
+                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
+                                <span class="text-lg font-bold text-stone-800">12:00</span>
+                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">昼食</span>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="opacity-100  p-3 rounded border border-red-200 bg-red-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-red-700">本部・接待</div>
+                            <div class="text-xs text-stone-700 leading-snug">業者・講師への昼食接待（声掛け）</div>
+                        </div>
+                    
+                        <div class="opacity-100  p-3 rounded border border-emerald-200 bg-emerald-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-emerald-700">会計</div>
+                            <div class="text-xs text-stone-700 leading-snug">お弁当引き取り・配布補助</div>
+                        </div>
+                    
+                        <div class="opacity-100  p-3 rounded border border-blue-200 bg-blue-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-blue-700">受付・P</div>
+                            <div class="text-xs text-stone-700 leading-snug">（交代で休憩）</div>
+                        </div>
+                    
+                        <div class="opacity-100  p-3 rounded border border-yellow-200 bg-yellow-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-yellow-800">会場</div>
+                            <div class="text-xs text-stone-700 leading-snug">お弁当配布、ゴミ回収</div>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+                
+                    <div class="relative pl-8 md:pl-10 py-2">
+                        <div class="absolute -left-[9px] top-6 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
+                        <div class="bg-white rounded-lg border border-stone-200 p-4 shadow-sm">
+                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
+                                <span class="text-lg font-bold text-stone-800">15:00</span>
+                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">保護者・OB集合</span>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="opacity-100  p-3 rounded border border-red-200 bg-red-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-red-700">本部・接待</div>
+                            <div class="text-xs text-stone-700 leading-snug">保護者スタッフ・OBOG受付、謝礼渡し</div>
+                        </div>
+                    
+                        <div class="opacity-100  p-3 rounded border border-emerald-200 bg-emerald-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-emerald-700">会計</div>
+                            <div class="text-xs text-stone-700 leading-snug">当日券管理、会場支払い準備</div>
+                        </div>
+                    
+                        <div class="opacity-100  p-3 rounded border border-blue-200 bg-blue-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-blue-700">受付・P</div>
+                            <div class="text-xs text-stone-700 leading-snug"><span class="text-red-500 font-bold">★</span>お手伝い保護者全体挨拶、作業割り振りの説明</div>
+                        </div>
+                    
+                        <div class="opacity-100  p-3 rounded border border-yellow-200 bg-yellow-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-yellow-800">会場</div>
+                            <div class="text-xs text-stone-700 leading-snug"><span class="text-red-500 font-bold">★</span>OBOGへの場外整理指示、カラー別誘導の再確認</div>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+                
+                    <div class="relative pl-8 md:pl-10 py-2">
+                        <div class="absolute -left-[9px] top-6 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
+                        <div class="bg-white rounded-lg border border-stone-200 p-4 shadow-sm">
+                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
+                                <span class="text-lg font-bold text-stone-800">17:15</span>
+                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">一般開場</span>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="opacity-100  p-3 rounded border border-emerald-200 bg-emerald-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-emerald-700">会計</div>
+                            <div class="text-xs text-stone-700 leading-snug">来賓名簿の確認、ご祝儀・差し入れの受け取り</div>
+                        </div>
+                    
+                        <div class="opacity-100  p-3 rounded border border-blue-200 bg-blue-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-blue-700">受付・P</div>
+                            <div class="text-xs text-stone-700 leading-snug">プログラム配布、チケット回収</div>
+                        </div>
+                    
+                        <div class="opacity-100  p-3 rounded border border-yellow-200 bg-yellow-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-yellow-800">会場</div>
+                            <div class="text-xs text-stone-700 leading-snug">場内プラカード巡回（撮影・飲食禁止の周知）</div>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+                
+                    <div class="relative pl-8 md:pl-10 py-2">
+                        <div class="absolute -left-[9px] top-6 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
+                        <div class="bg-white rounded-lg border border-stone-200 p-4 shadow-sm">
+                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
+                                <span class="text-lg font-bold text-stone-800">18:00</span>
+                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">第1部 開演</span>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="opacity-100  p-3 rounded border border-red-200 bg-red-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-red-700">本部・接待</div>
+                            <div class="text-xs text-stone-700 leading-snug">電報リスト最終化、司会へ送付</div>
+                        </div>
+                    
+                        <div class="opacity-100  p-3 rounded border border-emerald-200 bg-emerald-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-emerald-700">会計</div>
+                            <div class="text-xs text-stone-700 leading-snug"><span class="text-red-500 font-bold">★</span>ご祝儀を会計へ集約</div>
+                        </div>
+                    
+                        <div class="opacity-100  p-3 rounded border border-blue-200 bg-blue-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-blue-700">受付・P</div>
+                            <div class="text-xs text-stone-700 leading-snug">チケット枚数集計、本部報告</div>
+                        </div>
+                    
+                        <div class="opacity-100  p-3 rounded border border-yellow-200 bg-yellow-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-yellow-800">会場</div>
+                            <div class="text-xs text-stone-700 leading-snug">OBOGドアマン配置、ドア開閉管理</div>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+                
+                    <div class="relative pl-8 md:pl-10 py-2">
+                        <div class="absolute -left-[9px] top-6 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
+                        <div class="bg-white rounded-lg border border-stone-200 p-4 shadow-sm">
+                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
+                                <span class="text-lg font-bold text-stone-800">20:50</span>
+                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">終演・見送り</span>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="opacity-100  p-3 rounded border border-red-200 bg-red-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-red-700">本部・接待</div>
+                            <div class="text-xs text-stone-700 leading-snug"><span class="text-red-500 font-bold">★</span>次年度の業者打診、トラック業者支払い</div>
+                        </div>
+                    
+                        <div class="opacity-100  p-3 rounded border border-emerald-200 bg-emerald-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-emerald-700">会計</div>
+                            <div class="text-xs text-stone-700 leading-snug">ご祝儀の最終確認、出欠名簿記入</div>
+                        </div>
+                    
+                        <div class="opacity-100  p-3 rounded border border-blue-200 bg-blue-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-blue-700">受付・P</div>
+                            <div class="text-xs text-stone-700 leading-snug">アンケート回収、記入台の片付け</div>
+                        </div>
+                    
+                        <div class="opacity-100  p-3 rounded border border-yellow-200 bg-yellow-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-yellow-800">会場</div>
+                            <div class="text-xs text-stone-700 leading-snug">お客様のゴミ拾い、<span class="text-red-500 font-bold">★</span>忘れ物点検</div>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+                
+                    <div class="relative pl-8 md:pl-10 py-2">
+                        <div class="absolute -left-[9px] top-6 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
+                        <div class="bg-white rounded-lg border border-stone-200 p-4 shadow-sm">
+                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
+                                <span class="text-lg font-bold text-stone-800">22:00</span>
+                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">完全撤収</span>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="opacity-100  p-3 rounded border border-red-200 bg-red-50 transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-red-700">本部・接待</div>
+                            <div class="text-xs text-stone-700 leading-snug">楽屋入口に集合・解散。ミーティングは入口前</div>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <!-- Section 5: Role Members Reference -->
+        <section class="bg-white rounded-xl shadow-sm border border-stone-200 p-6 fade-in delay-300">
+             <h2 class="text-lg font-bold text-stone-700 border-l-4 border-purple-400 pl-3 mb-4">係メンバー表</h2>
+             <div class="overflow-x-auto">
+                <table class="min-w-full text-sm text-left text-stone-600">
+                    <thead class="text-xs text-stone-700 bg-stone-50">
+                        <tr>
+                            <th class="px-6 py-3">係名</th>
+                            <th class="px-6 py-3">リーダー (2年)</th>
+                            <th class="px-6 py-3">メンバー (1年)</th>
+                            <th class="px-6 py-3">主な役割</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-stone-100" id="members-table-body">
+                <tr class="hover:bg-stone-50"><td class="px-6 py-4 font-bold text-xs">本部・接待</td><td class="px-6 py-4 text-xs">[氏名]</td><td class="px-6 py-4 text-xs">[氏名]、[氏名]</td><td class="px-6 py-4 text-[10px] text-stone-500">業者対応、OBOG管理</td></tr>
+            
+                <tr class="hover:bg-stone-50"><td class="px-6 py-4 font-bold text-xs">会計</td><td class="px-6 py-4 text-xs">[氏名]</td><td class="px-6 py-4 text-xs">[氏名]、[氏名]</td><td class="px-6 py-4 text-[10px] text-stone-500">謝礼、ご祝儀管理</td></tr>
+            
+                <tr class="hover:bg-stone-50"><td class="px-6 py-4 font-bold text-xs">受付・P</td><td class="px-6 py-4 text-xs">[氏名]</td><td class="px-6 py-4 text-xs">[氏名]、[氏名]</td><td class="px-6 py-4 text-[10px] text-stone-500">プログラム、差出人管理</td></tr>
+            
+                <tr class="hover:bg-stone-50"><td class="px-6 py-4 font-bold text-xs">会場</td><td class="px-6 py-4 text-xs">[氏名]</td><td class="px-6 py-4 text-xs">[氏名]、[氏名]</td><td class="px-6 py-4 text-[10px] text-stone-500">場内・外整理、誘導</td></tr>
+            </tbody>
+                </table>
+             </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-stone-800 text-stone-300 py-8 mt-12">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <p class="text-sm">本郷中学校吹奏楽部</p>
+            <p class="text-xs mt-2 opacity-60">2025年度 第33回定期演奏会 実行委員会 | ✨ Powered by Gemini</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- DATA ---
+        const concertData = {
+            roles: [
+                { id: 'hq', name: '本部・接待', color: 'red', leader: '[氏名]', sub: '[氏名]', members: '[氏名]、[氏名]', note: '業者対応、OBOG管理' },
+                { id: 'accounting', name: '会計', color: 'green', leader: '[氏名]', sub: '[氏名]', members: '[氏名]、[氏名]', note: '謝礼、ご祝儀管理' },
+                { id: 'reception', name: '受付・P', color: 'blue', leader: '[氏名]', sub: '[氏名]', members: '[氏名]、[氏名]', note: 'プログラム、差出人管理' },
+                { id: 'venue', name: '会場', color: 'yellow', leader: '[氏名]', sub: '[氏名]', members: '[氏名]、[氏名]', note: '場内・外整理、誘導' }
+            ],
+            schedule: [
+                { time: "09:00", stage: "会場入り", tasks: { hq: "集合、ネームホルダー準備、OBOG出欠確認、★楽屋の写真撮影（原状復帰用）", accounting: "集合、謝礼金準備、DGOB支払い準備", reception: "集合、ホワイエ備品確認、★ホワイエの写真撮影（原状復帰用）", venue: "集合、会場内見回り、忘れ物点検用チェック" }},
+                { time: "09:30", stage: "業者入り", tasks: { hq: "外部講師・業者様対応、駐車券渡し、ロゼット管理", accounting: "業者支払い（吉岡様等）", reception: "案内板・看板の準備、差出人カード作成", venue: "楽器搬入サポート、動線確認" }},
+                { time: "10:30", stage: "リハーサル開始", tasks: { hq: "お菓子・飲み物のセッティング、電報リスト作成", accounting: "請求書の確認", reception: "受付カウンター設営準備", venue: "客席内見回り" }},
+                { time: "12:00", stage: "昼食", tasks: { hq: "業者・講師への昼食接待（声掛け）", accounting: "お弁当引き取り・配布補助", reception: "（交代で休憩）", venue: "お弁当配布、ゴミ回収" }},
+                { time: "15:00", stage: "保護者・OB集合", tasks: { hq: "保護者スタッフ・OBOG受付、謝礼渡し", accounting: "当日券管理、会場支払い準備", reception: "★お手伝い保護者全体挨拶、作業割り振りの説明", venue: "★OBOGへの場外整理指示、カラー別誘導の再確認" }},
+                { time: "17:15", stage: "一般開場", tasks: { hq: "", accounting: "来賓名簿の確認、ご祝儀・差し入れの受け取り", reception: "プログラム配布、チケット回収", venue: "場内プラカード巡回（撮影・飲食禁止の周知）" }},
+                { time: "18:00", stage: "第1部 開演", tasks: { hq: "電報リスト最終化、司会へ送付", accounting: "★ご祝儀を会計へ集約", reception: "チケット枚数集計、本部報告", venue: "OBOGドアマン配置、ドア開閉管理" }},
+                { time: "20:50", stage: "終演・見送り", tasks: { hq: "★次年度の業者打診、トラック業者支払い", accounting: "ご祝儀の最終確認、出欠名簿記入", reception: "アンケート回収、記入台の片付け", venue: "お客様のゴミ拾い、★忘れ物点検" }},
+                { time: "22:00", stage: "完全撤収", tasks: { hq: "楽屋入口に集合・解散。ミーティングは入口前", accounting: "", reception: "", venue: "" }}
+            ]
+        };
+
+        // --- GEMINI API INTEGRATION ---
+        const apiKey = "";
+        
+        async function askAI(type) {
+            const input = document.getElementById('ai-input').value;
+            const container = document.getElementById('ai-result-container');
+            const responseText = document.getElementById('ai-response-text');
+            const loaders = {
+                'troubleshoot': document.getElementById('loader-trouble'),
+                'announce': document.getElementById('loader-announce'),
+                'checklist': document.getElementById('loader-check')
+            };
+
+            if (!input && type === 'troubleshoot') {
+                alert("トラブルの内容を入力してください。");
+                return;
+            }
+
+            container.classList.remove('hidden');
+            responseText.innerHTML = "✨ AIが思考中...";
+            loaders[type].classList.remove('hidden');
+
+            const scheduleContext = JSON.stringify(concertData.schedule);
+            const rolesContext = JSON.stringify(concertData.roles);
+
+            let prompt = "";
+            if (type === 'troubleshoot') {
+                prompt = `あなたは吹奏楽部の定期演奏会の運営アドバイザーです。状況: "${input}"。スケジュール context: ${scheduleContext}。係 context: ${rolesContext}。担当係、3つのアクション、周知事項を簡潔に回答してください。`;
+            } else if (type === 'announce') {
+                prompt = `定期演奏会のアナウンス・挨拶を作成。リクエスト: "${input || '当日の挨拶'}"。スケジュール context: ${scheduleContext}。丁寧な日本語で作成してください。`;
+            } else {
+                prompt = `スケジュール(${scheduleContext})に基づき、${input || '全係'}向けの最重要チェックリストを5つ作成。日本語で回答してください。`;
+            }
+
+            try {
+                const response = await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: prompt }] }],
+                        systemInstruction: { parts: [{ text: "あなたは運営のエキスパートです。スケジュール情報を元に具体的で実行可能なアドバイスを行います。" }] }
+                    })
+                });
+                
+                const data = await response.json();
+                const resultText = data.candidates?.[0]?.content?.parts?.[0]?.text || "回答を生成できませんでした。";
+                responseText.innerHTML = resultText;
+            } catch (error) {
+                responseText.innerHTML = "エラーが発生しました。";
+            } finally {
+                loaders[type].classList.add('hidden');
+            }
+        }
+
+        async function fetchWithRetry(url, options, retries = 5, backoff = 1000) {
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    if (response.ok) return response;
+                } catch (err) {}
+                await new Promise(resolve => setTimeout(resolve, backoff));
+                backoff *= 2;
+            }
+            throw new Error("API call failed");
+        }
+
+        // --- INTERNAL DOWNLOAD FUNCTION ---
+        function downloadSelf() {
+            const htmlContent = document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'concert_schedule_app.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        // --- RENDER FUNCTIONS ---
+        function getColorClass(colorName, type) {
+            const map = {
+                'red': { bg: 'red-500', bgSoft: 'red-50', text: 'red-700', border: 'red-200' },
+                'green': { bg: 'emerald-500', bgSoft: 'emerald-50', text: 'emerald-700', border: 'emerald-200' },
+                'blue': { bg: 'blue-500', bgSoft: 'blue-50', text: 'blue-700', border: 'blue-200' },
+                'yellow': { bg: 'yellow-500', bgSoft: 'yellow-50', text: 'yellow-800', border: 'yellow-200' }
+            };
+            const c = map[colorName] || map['red'];
+            return c[type];
+        }
+
+        function filterSchedule(roleId) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                if (btn.id === `btn-${roleId}`) {
+                    btn.classList.add('bg-stone-800', 'text-white', 'shadow-md');
+                    btn.classList.remove('bg-stone-200', 'text-stone-600');
+                } else {
+                    btn.classList.remove('bg-stone-800', 'text-white', 'shadow-md');
+                    btn.classList.add('bg-stone-200', 'text-stone-600');
+                }
+            });
+            renderTimeline(roleId);
+        }
+
+        function renderTimeline(filter = 'all') {
+            const container = document.getElementById('timeline-container');
+            container.innerHTML = concertData.schedule.map(slot => {
+                let tasksHTML = '<div class="grid grid-cols-1 md:grid-cols-2 gap-3">';
+                Object.keys(slot.tasks).forEach(key => {
+                    const taskText = slot.tasks[key];
+                    if (!taskText) return;
+                    const role = concertData.roles.find(r => r.id === key);
+                    const isSelected = filter === 'all' || filter === key;
+                    const opacity = isSelected ? 'opacity-100' : 'opacity-20 grayscale';
+                    const activeClass = (filter === key) ? 'ring-2 ring-purple-400 shadow-sm' : '';
+                    
+                    tasksHTML += `
+                        <div class="${opacity} ${activeClass} p-3 rounded border border-${getColorClass(role.color, 'border')} bg-${getColorClass(role.color, 'bgSoft')} transition-all">
+                            <div class="text-[10px] font-bold uppercase mb-1 text-${getColorClass(role.color, 'text')}">${role.name}</div>
+                            <div class="text-xs text-stone-700 leading-snug">${taskText.replace(/★/g, '<span class="text-red-500 font-bold">★</span>')}</div>
+                        </div>
+                    `;
+                });
+                tasksHTML += '</div>';
+
+                return `
+                    <div class="relative pl-8 md:pl-10 py-2">
+                        <div class="absolute -left-[9px] top-6 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
+                        <div class="bg-white rounded-lg border border-stone-200 p-4 shadow-sm">
+                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
+                                <span class="text-lg font-bold text-stone-800">${slot.time}</span>
+                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">${slot.stage}</span>
+                            </div>
+                            ${tasksHTML}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function initCharts() {
+            const roleLabels = concertData.roles.map(r => r.name);
+            const taskCounts = concertData.roles.map(r => concertData.schedule.filter(s => s.tasks[r.id]).length);
+            
+            new Chart(document.getElementById('taskDistributionChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: roleLabels,
+                    datasets: [{ data: taskCounts, backgroundColor: ['#ef4444', '#10b981', '#3b82f6', '#eab308'], borderWidth: 0 }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } } } }
+            });
+
+            new Chart(document.getElementById('activityHeatmapChart'), {
+                type: 'bar',
+                data: {
+                    labels: concertData.schedule.map(s => s.time),
+                    datasets: [{ label: 'タスク密度', data: concertData.schedule.map(s => Object.values(s.tasks).filter(t => t).length), backgroundColor: '#a8a29e', borderRadius: 4 }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, scales: { y: { display: false }, x: { grid: { display: false }, ticks: { font: { size: 9 } } } }, plugins: { legend: { display: false } } }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('members-table-body').innerHTML = concertData.roles.map(role => `
+                <tr class="hover:bg-stone-50"><td class="px-6 py-4 font-bold text-xs">${role.name}</td><td class="px-6 py-4 text-xs">${role.leader}</td><td class="px-6 py-4 text-xs">${role.members}</td><td class="px-6 py-4 text-[10px] text-stone-500">${role.note}</td></tr>
+            `).join('');
+            renderTimeline();
+            initCharts();
+        });
+    </script>
+
+</body></html>
