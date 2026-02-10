@@ -1,1529 +1,290 @@
-<html lang="ja"><head><script>(function(firebaseConfig, initialAuthToken, appId) {
-        window.__firebase_config = firebaseConfig;
-        window.__initial_auth_token = initialAuthToken;
-        window.__app_id = appId;
-            })("\n{\n  \"apiKey\": \"AIzaSyCqyCcs2R2e7AegGjvFAwG98wlamtbHvZY\",\n  \"authDomain\": \"bard-frontend.firebaseapp.com\",\n  \"projectId\": \"bard-frontend\",\n  \"storageBucket\": \"bard-frontend.firebasestorage.app\",\n  \"messagingSenderId\": \"175205271074\",\n  \"appId\": \"1:175205271074:web:2b7bd4d34d33bf38e6ec7b\"\n}\n","eyJhbGciOiJSUzI1NiIsImtpZCI6ImQ1OTQzZDdlNWZhYTIxZjcyOTJjMzI3MGY3ZDBjNWJmNDE5MjJmOTciLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1mYnN2Y0BiYXJkLWZyb250ZW5kLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6Ly9pZGVudGl0eXRvb2xraXQuZ29vZ2xlYXBpcy5jb20vZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJ1aWQiOiIwNTI1NTAzOTgxMTQwNjI1MDMwNCIsImlzcyI6ImZpcmViYXNlLWFkbWluc2RrLWZic3ZjQGJhcmQtZnJvbnRlbmQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJjbGFpbXMiOnsiYXBwSWQiOiJjX2UyOWYwMDg3NzYwYmI4ZDhfY29uY2VydF9zY2hlZHVsZV9hcHAuaHRtbC04NjgifSwiZXhwIjoxNzcwNDcxOTY5LCJpYXQiOjE3NzA0NjgzNjksImFsZyI6IlJTMjU2In0.XxazjUUrQXdE_eM_SfJmxvkW9AlUHhlSUsfPv0OgxversVxj7fN0soUxyA2c8WY9Uor0f7UePKBJhi8uTvc2RZWqfmqbAOtYu-fwRSxki2qist9LSBKcYPf-2H9OX9iwFLUT8qdWAxnzoKuZUxogdOCupNnCrydwE5SOP-FzLOzMjrSFRd9l6QJhBCUgOEmJKujtN9I7mYAuNSHAj-6FxBGZthc6z9wcsXJjcqVtx4cDICKgz6CmiQHa2DJjzjk8BGaQ-DDPK6HQU8AA-cW7l3ua0e0WKWMKmhiZsFQnm0NYKlMkv1T5_GewMoIKS30_1Fa65WR-f5LWD-2huZvgnQ","c_e29f0087760bb8d8_concert_schedule_app.html-868")</script><script>'use strict';var h=typeof Object.defineProperties=="function"?Object.defineProperty:function(a,b,d){if(a==Array.prototype||a==Object.prototype)return a;a[b]=d.value;return a};function l(a){a=["object"==typeof globalThis&&globalThis,a,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var b=0;b<a.length;++b){var d=a[b];if(d&&d.Math==Math)return d}throw Error("Cannot find global object");}var n=l(this);
-function p(a,b){if(b)a:{var d=n;a=a.split(".");for(var c=0;c<a.length-1;c++){var e=a[c];if(!(e in d))break a;d=d[e]}a=a[a.length-1];c=d[a];b=b(c);b!=c&&b!=null&&h(d,a,{configurable:!0,writable:!0,value:b})}}function r(a){function b(c){return a.next(c)}function d(c){return a.throw(c)}return new Promise(function(c,e){function f(g){g.done?c(g.value):Promise.resolve(g.value).then(b,d).then(f,e)}f(a.next())})}function t(a){return r(a())}
-p("Object.values",function(a){return a?a:function(b){var d=[],c;for(c in b)Object.prototype.hasOwnProperty.call(b,c)&&d.push(b[c]);return d}});p("Array.prototype.includes",function(a){return a?a:function(b,d){var c=this;c instanceof String&&(c=String(c));var e=c.length;d=d||0;for(d<0&&(d=Math.max(d+e,0));d<e;d++){var f=c[d];if(f===b||Object.is(f,b))return!0}return!1}});/*
+<!DOCTYPE html>
+<html lang="ja">
 
- MIT License
-
- Copyright (c) 2017-2023 W.Y.
-
- Permission is hereby granted, free of charge, to any person obtaining a copy
- of this software and associated documentation files (the "Software"), to deal
- in the Software without restriction, including without limitation the rights
- to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- copies of the Software, and to permit persons to whom the Software is
- furnished to do so, subject to the following conditions:
-
- The above copyright notice and this permission notice shall be included in
- all copies or substantial portions of the Software.
-
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- SOFTWARE.
-
-*/
-function u(a,b){const d=a.style;b.backgroundColor&&(d.backgroundColor=b.backgroundColor);b.width&&(d.width=`${b.width}px`);b.height&&(d.height=`${b.height}px`);const c=b.style;c!=null&&Object.keys(c).forEach(e=>{d[e]=c[e]})};var v=(()=>{let a=0;return()=>{a+=1;return`u${`0000${(Math.random()*1679616<<0).toString(36)}`.slice(-4)}${a}`}})();function w(a){const b=[];for(let d=0,c=a.length;d<c;d++)b.push(a[d]);return b}let x=null;function y(a={}){return x?x:a.l?x=a.l:x=w(window.getComputedStyle(document.documentElement))}function z(a,b){return(a=(a.ownerDocument.defaultView||window).getComputedStyle(a).getPropertyValue(b))?parseFloat(a.replace("px","")):0}
-function A(a,b={}){var d;if(!(d=b.width)){d=z(a,"border-left-width");var c=z(a,"border-right-width");d=a.clientWidth+d+c}(b=b.height)||(b=z(a,"border-top-width"),c=z(a,"border-bottom-width"),b=a.clientHeight+b+c);return{width:d,height:b}}function B(a){return new Promise((b,d)=>{const c=new Image;c.onload=()=>{c.decode().then(()=>{requestAnimationFrame(()=>b(c))})};c.onerror=d;c.crossOrigin="anonymous";c.decoding="async";c.src=a})}
-function C(a){return t(function*(){return Promise.resolve().then(()=>(new XMLSerializer).serializeToString(a)).then(encodeURIComponent).then(b=>`data:image/svg+xml;charset=utf-8,${b}`)})}
-function D(a,b,d){return t(function*(){const c=document.createElementNS("http://www.w3.org/2000/svg","svg"),e=document.createElementNS("http://www.w3.org/2000/svg","foreignObject");c.setAttribute("width",`${b}`);c.setAttribute("height",`${d}`);c.setAttribute("viewBox",`0 0 ${b} ${d}`);e.setAttribute("width","100%");e.setAttribute("height","100%");e.setAttribute("x","0");e.setAttribute("y","0");e.setAttribute("externalResourcesRequired","true");c.appendChild(e);e.appendChild(a);return C(c)})}
-var E=(a,b)=>{if(a instanceof b)return!0;a=Object.getPrototypeOf(a);return a===null?!1:a.constructor.name===b.name||E(a,b)};function F(a,b){return y(b).map(d=>{const c=a.getPropertyValue(d),e=a.getPropertyPriority(d);return`${d}: ${c}${e?" !important":""};`}).join(" ")}
-function G(a,b,d,c){a=window.getComputedStyle(a,d);var e=a.getPropertyValue("content");if(e!==""&&e!=="none"){var f=v();try{b.className=`${b.className} ${f}`}catch(k){return}e=document.createElement("style");var g=e.appendChild;d=`.${f}:${d}`;a.cssText?(c=a.getPropertyValue("content"),c=`${a.cssText} content: '${c.replace(/'|"/g,"")}';`):c=F(a,c);g.call(e,document.createTextNode(`${d}{${c}}`));b.appendChild(e)}};function H(a){return a.search(/^(data:)/)!==-1}function I(a,b,d){return t(function*(){const c=yield fetch(a,b);if(c.status===404)throw Error(`Resource "${c.url}" not found`);const e=yield c.blob();return new Promise((f,g)=>{const k=new FileReader;k.onerror=g;k.onloadend=()=>{try{f(d({o:c,result:k.result}))}catch(m){g(m)}};k.readAsDataURL(e)})})}const J={};function K(a,b,d){let c=a.replace(/\?.*/,"");d&&(c=a);/ttf|otf|eot|woff2?/i.test(c)&&(c=c.replace(/.*\//,""));return b?`[${b}]${c}`:c}
-function L(a,b,d){return t(function*(){const c=K(a,b,d.C);if(J[c]!=null)return J[c];d.u&&(a+=(/\?/.test(a)?"&":"?")+(new Date).getTime());let e;try{const f=yield I(a,d.i,({o:g,result:k})=>{b||(b=g.headers.get("Content-Type")||"");return k.split(/,/)[1]});e=`data:${b};base64,${f}`}catch(f){e=d.B||""}return J[c]=e})};const M={P:"application/font-woff",R:"application/font-woff",N:"application/font-truetype",v:"application/vnd.ms-fontobject",H:"image/png",F:"image/jpeg",D:"image/jpeg",A:"image/gif",M:"image/tiff",L:"image/svg+xml",O:"image/webp"};function N(a){return(a=/\.([^./]*?)$/g.exec(a))?a[1]:""};function O(a){return t(function*(){const b=a.toDataURL();return b==="data:,"?a.cloneNode(!1):B(b)})}function aa(a,b){return t(function*(){if(a.currentSrc){var d=document.createElement("canvas");const c=d.getContext("2d");d.width=a.clientWidth;d.height=a.clientHeight;c==null||c.drawImage(a,0,0,d.width,d.height);d=d.toDataURL();return B(d)}d=a.poster;d=yield L(d,M[N(d).toLowerCase()]||"",b);return B(d)})}
-function ba(a,b){return t(function*(){try{let d;if(a==null?0:(d=a.contentDocument)==null?0:d.body)return yield P(a.contentDocument.body,b,!0)}catch(d){}return a.cloneNode(!1)})}function ca(a,b){return t(function*(){return E(a,HTMLCanvasElement)?O(a):E(a,HTMLVideoElement)?aa(a,b):E(a,HTMLIFrameElement)?ba(a,b):a.cloneNode(a.tagName!=null&&a.tagName.toUpperCase()==="SVG")})}
-function da(a,b,d){return t(function*(){if(b.tagName!=null&&b.tagName.toUpperCase()==="SVG")return b;let c=[];if(a.tagName!=null&&a.tagName.toUpperCase()==="SLOT"&&a.assignedNodes)c=w(a.assignedNodes());else{let e;if(E(a,HTMLIFrameElement)&&((e=a.contentDocument)==null?0:e.body))c=w(a.contentDocument.body.childNodes);else{let f;c=w(((f=a.shadowRoot)!=null?f:a).childNodes)}}if(c.length===0||E(a,HTMLVideoElement))return b;yield c.reduce((e,f)=>e.then(()=>P(f,d)).then(g=>{g&&b.appendChild(g)}),Promise.resolve());
-return b})}function ea(a,b,d){const c=b.style;if(c){var e=window.getComputedStyle(a);e.cssText?(c.cssText=e.cssText,c.transformOrigin=e.transformOrigin):y(d).forEach(f=>{let g=e.getPropertyValue(f);f==="font-size"&&g.endsWith("px")&&(g=`${Math.floor(parseFloat(g.substring(0,g.length-2)))-.1}px`);E(a,HTMLIFrameElement)&&f==="display"&&g==="inline"&&(g="block");f==="d"&&b.getAttribute("d")&&(g=`path(${b.getAttribute("d")})`);c.setProperty(f,g,e.getPropertyPriority(f))})}}
-function fa(a,b){E(a,HTMLSelectElement)&&(b=Array.from(b.children).find(d=>a.value===d.getAttribute("value")))&&b.setAttribute("selected","")}
-function ha(a,b){return t(function*(){var d=a.querySelectorAll?a.querySelectorAll("use"):[];if(d.length===0)return a;var c={};for(var e=0;e<d.length;e++){var f=d[e].getAttribute("xlink:href");if(f){const g=document.querySelector(f);a.querySelector(f)||!g||c[f]||(c[f]=yield P(g,b,!0))}}d=Object.values(c);if(d.length){c=document.createElementNS("http://www.w3.org/1999/xhtml","svg");c.setAttribute("xmlns","http://www.w3.org/1999/xhtml");c.style.position="absolute";c.style.width="0";c.style.height="0";
-c.style.overflow="hidden";c.style.display="none";e=document.createElementNS("http://www.w3.org/1999/xhtml","defs");c.appendChild(e);for(f=0;f<d.length;f++)e.appendChild(d[f]);a.appendChild(c)}return a})}
-function P(a,b,d){return t(function*(){return d||!b.filter||b.filter(a)?Promise.resolve(a).then(c=>ca(c,b)).then(c=>da(a,c,b)).then(c=>{E(c,Element)&&(ea(a,c,b),G(a,c,":before",b),G(a,c,":after",b),E(a,HTMLTextAreaElement)&&(c.textContent=a.value),E(a,HTMLInputElement)&&c.setAttribute("value",a.value),fa(a,c));return c}).then(c=>ha(c,b)):null})};const Q=/url\((['"]?)([^'"]+?)\1\)/g,ia=/url\([^)]+\)\s*format\((["']?)([^"']+)\1\)/g,ja=/src:\s*(?:url\([^)]+\)\s*format\([^)]+\)[,;]\s*)+/g;function ka(a){const b=[];a.replace(Q,(d,c,e)=>{b.push(e);return d});return b.filter(d=>!H(d))}
-function la(a,b,d,c){return t(function*(){try{const e=d?(new URL(b,d||void 0)).toString():b;let f;f=yield L(e,M[N(b).toLowerCase()]||"",c);return a.replace(new RegExp(`(url\\(['"]?)(${b.replace(/([.*+?^${}()|\[\]\/\\])/g,"\\$1")})(['"]?\\))`,"g"),`$1${f}$3`)}catch(e){}return a})}function ma(a,{I:b}){return b?a.replace(ja,d=>{for(;;){const [c,,e]=ia.exec(d)||[],f=c,g=e;if(!g)return"";if(g===b)return`src: ${f};`}}):a}
-function R(a,b,d){return t(function*(){if(a.search(Q)===-1)return a;const c=ma(a,d);return ka(c).reduce((e,f)=>e.then(g=>la(g,f,b,d)),Promise.resolve(c))})};function S(a,b,d){return t(function*(){var c;const e=(c=b.style)==null?void 0:c.getPropertyValue(a);return e?(c=yield R(e,null,d),b.style.setProperty(a,c,b.style.getPropertyPriority(a)),!0):!1})}function na(a,b){return t(function*(){(yield S("background",a,b))||(yield S("background-image",a,b));(yield S("mask",a,b))||(yield S("-webkit-mask",a,b))||(yield S("mask-image",a,b))||(yield S("-webkit-mask-image",a,b))})}
-function oa(a,b){return t(function*(){const d=E(a,HTMLImageElement);if(d&&!H(a.src)||E(a,SVGImageElement)&&!H(a.href.baseVal)){var c=d?a.src:a.href.baseVal,e=yield L(c,M[N(c).toLowerCase()]||"",b);yield new Promise((f,g)=>{a.onload=f;a.onerror=b.m?(...k)=>{try{f(b.m(...k))}catch(m){g(m)}}:g;a.decode&&(a.decode=f);a.loading==="lazy"&&(a.loading="eager");d?(a.srcset="",a.src=e):a.href.baseVal=e})}})}
-function pa(a,b){return t(function*(){const d=w(a.childNodes).map(c=>T(c,b));yield Promise.all(d).then(()=>a)})}function T(a,b){return t(function*(){E(a,Element)&&(yield na(a,b),yield oa(a,b),yield pa(a,b))})};const U={};function V(a){return t(function*(){var b=U[a];if(b!=null)return b;b=yield(yield fetch(a)).text();b={url:a,cssText:b};return U[a]=b})}function W(a,b){return t(function*(){let d=a.cssText;const c=/url\(["']?([^"')]+)["']?\)/g,e=(d.match(/url\([^)]+\)/g)||[]).map(f=>t(function*(){let g=f.replace(c,"$1");g.startsWith("https://")||(g=(new URL(g,a.url)).href);return I(g,b.i,({result:k})=>{d=d.replace(f,`url(${k})`);return[f,k]})}));return Promise.all(e).then(()=>d)})}
-function X(a){if(a==null)return[];const b=[];a=a.replace(/(\/\*[\s\S]*?\*\/)/gi,"");for(var d=RegExp("((@.*?keyframes [\\s\\S]*?){([\\s\\S]*?}\\s*?)})","gi");;){var c=d.exec(a);if(c===null)break;b.push(c[0])}a=a.replace(d,"");d=/@import[\s\S]*?url\([^)]*\)[\s\S]*?;/gi;for(c=RegExp("((\\s*?(?:\\/\\*[\\s\\S]*?\\*\\/)?\\s*?@media[\\s\\S]*?){([\\s\\S]*?)}\\s*?})|(([\\s\\S]*?){([\\s\\S]*?)})","gi");;){let e=d.exec(a);if(e===null)if(e=c.exec(a),e===null)break;else d.lastIndex=c.lastIndex;else c.lastIndex=
-d.lastIndex;b.push(e[0])}return b}
-function qa(a,b){return t(function*(){const d=[],c=[];a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach((f,g)=>{if(f.type===CSSRule.IMPORT_RULE){let k=g+1;f=V(f.href).then(m=>W(m,b)).then(m=>X(m).forEach(q=>{try{e.insertRule(q,q.startsWith("@import")?k+=1:e.cssRules.length)}catch(Da){}})).catch(()=>{});c.push(f)}})}catch(f){const g=a.find(k=>k.href==null)||document.styleSheets[0];e.href!=null&&c.push(V(e.href).then(k=>W(k,b)).then(k=>X(k).forEach(m=>{g.insertRule(m,g.cssRules.length)})).catch(()=>
-{}))}});return Promise.all(c).then(()=>{a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach(f=>{d.push(f)})}catch(f){}});return d})})}function ra(a){return a.filter(b=>b.type===CSSRule.FONT_FACE_RULE).filter(b=>b.style.getPropertyValue("src").search(Q)!==-1)}function sa(a,b){return t(function*(){if(a.ownerDocument==null)throw Error("Provided element is not within a Document");var d=w(a.ownerDocument.styleSheets);d=yield qa(d,b);return ra(d)})}
-function ta(a){function b(c){(c.style.fontFamily||getComputedStyle(c).fontFamily).split(",").forEach(e=>{d.add(e.trim().replace(/["']/g,""))});Array.from(c.children).forEach(e=>{e instanceof HTMLElement&&b(e)})}const d=new Set;b(a);return d}function ua(a,b){return t(function*(){const d=yield sa(a,b),c=ta(a);return(yield Promise.all(d.filter(e=>c.has(e.style.fontFamily.trim().replace(/["']/g,""))).map(e=>R(e.cssText,e.parentStyleSheet?e.parentStyleSheet.href:null,b)))).join("\n")})}
-function va(a,b){return t(function*(){const d=b.j!=null?b.j:b.K?null:yield ua(a,b);if(d){const c=document.createElement("style");c.appendChild(document.createTextNode(d));a.firstChild?a.insertBefore(c,a.firstChild):a.appendChild(c)}})};function wa(a,b={}){return t(function*(){const {width:d,height:c}=A(a,b),e=yield P(a,b,!0);yield va(e,b);yield T(e,b);u(e,b);return yield D(e,d,c)})}
-function xa(a,b={}){return t(function*(){const {width:d,height:c}=A(a,b);var e=yield wa(a,b);e=yield B(e);const f=document.createElement("canvas"),g=f.getContext("2d"),k=b.G||window.devicePixelRatio||1,m=b.h||d,q=b.g||c;f.width=m*k;f.height=q*k;!b.J&&(f.width>16384||f.height>16384)&&(f.width>16384&&f.height>16384?f.width>f.height?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=16384):f.width>16384?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=
-16384));f.style.width=`${m}`;f.style.height=`${q}`;b.backgroundColor&&(g.fillStyle=b.backgroundColor,g.fillRect(0,0,f.width,f.height));g.drawImage(e,0,0,f.width,f.height);return f})}function ya(a,b={}){return t(function*(){return(yield xa(a,b)).toDataURL()})};const za=["gemini.google.com","corp.google.com","proxy.googlers.com"];function Y(){return document.body.querySelectorAll('[class*="animate"]').length>0}function Z(a){return t(function*(){try{return yield ya(a,{h:a.offsetWidth,g:a.offsetHeight})}catch(d){var b=a.offsetHeight;const c=document.createElement("canvas");c.width=a.offsetWidth;c.height=b;return c.toDataURL("image/png")}})}
-function Aa(){return t(function*(){const a=document.body.offsetWidth,b=document.body.offsetHeight,d=document.body.cloneNode(!0);d.querySelectorAll('[class*="animate"]').forEach(c=>{c.classList.remove(...Array.from(c.classList).filter(e=>e.startsWith("animate")))});d.style.width=`${a}px`;d.style.height=`${b}px`;return d})}
-function Ba(a){return t(function*(){let b=document.body;if(Y()){var d=yield Aa();b=d;document.body.appendChild(d)}d=yield Z(b);Y()&&document.body.removeChild(b);window.parent.postMessage({type:"SEND_SCREENSHOT",image:d,topOffset:document.documentElement.scrollTop},a.origin)})}function Ca(a){return t(function*(){const b={type:"SEND_SCREENSHOT_FOR_DATA_VISUALIZATION",image:yield Z(document.body),topOffset:0};window.parent.postMessage(b,a.origin)})}
-window.addEventListener("message",a=>t(function*(){if(za.some(d=>a.origin.includes(d))){var b=a.data;b&&(b.type==="MAKE_SCREENSHOT"&&(yield Ba(a)),b.type==="MAKE_SCREENSHOT_FOR_DATA_VISUALIZATION"&&(yield Ca(a)))}}));
-</script><script>(function() {
-  // Ensure this script is executed only once
-  if (window.firebaseAuthBridgeScriptLoaded) {
-    return;
-  }
-  window.firebaseAuthBridgeScriptLoaded = true;
-
-  let nextTokenPromiseId = 0;
-
-  // Stores { resolve, reject } for ongoing token requests
-  const pendingTokenPromises = {};
-
-  // Listen for messages from the Host Application
-  window.addEventListener('message', function(event) {
-
-    const messageData = event.data;
-
-  if (messageData && messageData.type === 'RESOLVE_NEW_FIREBASE_TOKEN') {
-      const { success, token, error, promiseId } = messageData ?? {};
-      if (pendingTokenPromises[promiseId]) {
-        if (success) {
-          pendingTokenPromises[promiseId].resolve(token);
-        } else {
-          pendingTokenPromises[promiseId].reject(new Error(error || 'Token refresh failed from host.'));
-        }
-        delete pendingTokenPromises[promiseId];
-      }
-    }
-  });
-
-  // Expose a function for the Generated App to request a new Firebase token
-  window.requestNewFirebaseToken = function() {
-    const currentPromiseId = nextTokenPromiseId++;
-    const promise = new Promise((resolve, reject) => {
-      pendingTokenPromises[currentPromiseId] = { resolve, reject };
-    });
-    if (window.parent && window.parent !== window) {
-      window.parent.postMessage({
-        type: 'REQUEST_NEW_FIREBASE_TOKEN',
-        promiseId: currentPromiseId
-      }, '*');
-    } else {
-      pendingTokenPromises[currentPromiseId].reject(new Error('No parent window to request token from.'));
-      delete pendingTokenPromises[currentPromiseId];
-    }
-    return promise;
-  };
-})();</script><script>
-let realOriginalGetUserMedia = null;
-if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-  realOriginalGetUserMedia = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
-}
-
-(function() {
-  if (navigator.mediaDevices && navigator.mediaDevices.__proto__) {
-    try {
-      Object.defineProperty(navigator.mediaDevices.__proto__, 'getUserMedia', {
-        get: function() {
-          return undefined; // Or throw an error
-        },
-        configurable: false
-      });
-    } catch (error) {
-      console.error("Error defining prototype getter:", error);
-    }
-  }
-})();
-
-(function() {
-  const pendingMediaResolvers = {};
-  let nextMediaPromiseId = 0;
-
-  function requestMediaPermissions(constraints) {
-    const mediaPromiseId = nextMediaPromiseId++;
-    const promise = new Promise((resolve, reject) => {
-      pendingMediaResolvers[mediaPromiseId] = (granted) => {
-        delete pendingMediaResolvers[mediaPromiseId];
-        resolve(granted);
-      };
-    });
-
-    window.parent.postMessage({
-      type: 'requestMediaPermission',
-      constraints: constraints,
-      promiseId: mediaPromiseId,
-    }, '*');
-
-    return promise;
-  }
-
-  let originalGetUserMedia = realOriginalGetUserMedia;
-
-  function interceptGetUserMedia() {
-    if (navigator.mediaDevices) {
-      Object.defineProperty(navigator.mediaDevices, 'getUserMedia', {
-        value: function(constraints) {
-          return requestMediaPermissions(constraints).then((granted) => {
-            if (granted) {
-              if (originalGetUserMedia) {
-                return originalGetUserMedia(constraints);
-              } else {
-                throw new Error("Original getUserMedia not available.");
-              }
-            } else {
-              throw new DOMException('Permission denied', 'NotAllowedError');
-            }
-          });
-        },
-        writable: false,
-        configurable: false
-      });
-    }
-  }
-
-  interceptGetUserMedia();
-
-  const observer = new MutationObserver(function(mutationsList, observer) {
-    for (const mutation of mutationsList) {
-      if (mutation.type === 'reconfigured' && mutation.name === 'getUserMedia' && mutation.object === navigator.mediaDevices) {
-        interceptGetUserMedia();
-      } else if (mutation.type === 'attributes' && mutation.attributeName === 'getUserMedia' && mutation.target === navigator.mediaDevices) {
-        interceptGetUserMedia();
-      } else if (mutation.type === 'childList' && mutation.addedNodes) {
-        mutation.addedNodes.forEach(node => {
-          if (node === navigator.mediaDevices) {
-            interceptGetUserMedia();
-          }
-        });
-      }
-    }
-  });
-
-  function interceptSpeechRecognition() {
-    if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
-      return;
-    }
-
-    const OriginalSpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-
-    const SpeechRecognitionWrapper = function(...args) {
-      const recognizer = new OriginalSpeechRecognition(...args);
-      const originalStart = recognizer.start.bind(recognizer);
-
-      recognizer.start = function() {
-        requestMediaPermissions({ audio: true }).then(granted => {
-          if (granted) {
-            originalStart();
-          } else {
-            const errorEvent = new SpeechRecognitionErrorEvent('error');
-            errorEvent.error = 'not-allowed'; // This is the standard error for permission denial.
-            recognizer.dispatchEvent(errorEvent);
-          }
-        });
-      };
-
-      return recognizer;
-    };
-
-    SpeechRecognitionWrapper.prototype = OriginalSpeechRecognition.prototype;
-    SpeechRecognitionWrapper.prototype.constructor = SpeechRecognitionWrapper;
-
-    if (window.SpeechRecognition) {
-      window.SpeechRecognition = SpeechRecognitionWrapper;
-    }
-    if (window.webkitSpeechRecognition) {
-      window.webkitSpeechRecognition = SpeechRecognitionWrapper;
-    }
-  }
-
-  interceptSpeechRecognition();
-
-  window.addEventListener('message', function(event) {
-    if (event.data) {
-      if (event.data.type === 'resolveMediaPermission') {
-        const { promiseId, granted } = event.data;
-        if (pendingMediaResolvers[promiseId]) {
-          pendingMediaResolvers[promiseId](granted);
-        }
-      }
-    }
-  });
-
-})();</script><script>((function(modelInformation) {
-  const originalFetch = window.fetch;
-  // TODO: b/421908508 - Move these out of the script and match all generative AI model calls.
-  let googleLlmBaseApiUrls = [
-    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':streamGenerateContent',
-    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':generateContent',
-    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predict',
-    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predictLongRunning',
-    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageEditModelName + ':generateContent',
-    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageTransformModelName + ':generateContent',
-    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predict',
-    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predictLongRunning',
-    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.ttsModelName + ':generateContent',
-  ];
-  modelInformation.deprecatedTextModelNames.forEach((modelName) => {
-    googleLlmBaseApiUrls.push(
-      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
-      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
-    );
-  });
-  modelInformation.deprecatedImageModelNames.forEach((modelName) => {
-    googleLlmBaseApiUrls.push(
-      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predict',
-      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predictLongRunning',
-    );
-  });
-
-  const pendingFetchResolvers = {};
-  let nextPromiseId = 0;
-
-  function handleStringInput(input, optionsArgument) {
-    const actualUrl = input;
-    const fetchCallArgs = [actualUrl, optionsArgument];
-    const effectiveOptions = optionsArgument || {};
-    const bodyForApiKeyCheck = effectiveOptions.body;
-    const bodyForPostMessage = effectiveOptions.body;
-    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
-  }
-
-  function handleRequestInput(input, optionsArgument) {
-    const actualUrl = input.url;
-    const fetchCallArgs = [input, optionsArgument];
-    const effectiveOptions = { method: input.method, headers: new Headers(input.headers) };
-    let bodyForApiKeyCheck;
-    let bodyForPostMessage;
-
-    if (optionsArgument) {
-      if (optionsArgument.method) effectiveOptions.method = optionsArgument.method;
-      if (optionsArgument.headers) effectiveOptions.headers = new Headers(optionsArgument.headers);
-      if ('body' in optionsArgument) {
-        bodyForApiKeyCheck = optionsArgument.body;
-        bodyForPostMessage = optionsArgument.body;
-      } else {
-        bodyForApiKeyCheck = undefined;
-        bodyForPostMessage = input.body;
-      }
-    } else {
-      bodyForApiKeyCheck = undefined;
-      bodyForPostMessage = input.body;
-    }
-    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
-  }
-
-  window.fetch = function(input, optionsArgument) {
-    let actualUrl;
-    let fetchCallArgs;
-    let effectiveOptions = {};
-    let bodyForApiKeyCheck;
-    let bodyForPostMessage;
-
-    if (typeof input === 'string') {
-      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleStringInput(input, optionsArgument));
-    } else if (input instanceof Request) {
-      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleRequestInput(input, optionsArgument));
-    } else {
-      return originalFetch.apply(window, [input, optionsArgument]);
-    }
-
-    effectiveOptions.method = effectiveOptions.method || 'GET';
-    if (!effectiveOptions.headers) {
-      effectiveOptions.headers = new Headers();
-    }
-
-
-    if (typeof actualUrl === 'string' && googleLlmBaseApiUrls.some((url) => actualUrl.startsWith(url))) {
-      let apiKeyIsNull = true;
-
-      const regex = new RegExp("models/([^:]+)");
-      const modelNameMatch = actualUrl.match(regex);
-      const modelName = modelNameMatch ? modelNameMatch[1] : 'unspecified';
-
-
-      try {
-        const urlObject = new URL(actualUrl);  // Use URL object for robust parsing
-        const apiKeyParam = urlObject.searchParams.get('key');
-        if (apiKeyParam) {
-          apiKeyIsNull = false;
-        }
-      } catch (e) {
-        // Continue checks even if URL parsing fails
-      }
-
-      if (apiKeyIsNull && effectiveOptions.headers) {
-        const h = new Headers(effectiveOptions.headers);
-        const apiKeyHeaderValue = h.get('X-API-Key') || h.get('x-api-key');
-        if (apiKeyHeaderValue) {
-          apiKeyIsNull = false;
-          return originalFetch.apply(window, fetchCallArgs);
-        }
-      }
-
-      if (apiKeyIsNull && effectiveOptions.method && ['POST', 'PUT', 'PATCH'].includes(effectiveOptions.method.toUpperCase()) && typeof bodyForApiKeyCheck === 'string') {
-        try {
-          const bodyData = JSON.parse(bodyForApiKeyCheck);
-          if (bodyData && bodyData.apiKey) {
-            apiKeyIsNull = false;
-            return originalFetch.apply(window, fetchCallArgs);
-          }
-        } catch (e) {
-          // Ignore JSON parsing errors
-        }
-      }
-
-      if(apiKeyIsNull) {
-        const promiseId = nextPromiseId++;
-        const promise = new Promise((resolve) => {
-          pendingFetchResolvers[promiseId] = (resolvedResponse) => {
-            delete pendingFetchResolvers[promiseId];
-            resolve(resolvedResponse);
-          };
-        });
-
-        let serializedBodyForPostMessage;
-        if (typeof bodyForPostMessage === 'string' || bodyForPostMessage == null) {
-            serializedBodyForPostMessage = bodyForPostMessage;
-        } else if (bodyForPostMessage instanceof ReadableStream) {
-            serializedBodyForPostMessage = null;
-        } else {
-            try {
-                serializedBodyForPostMessage = JSON.stringify(bodyForPostMessage);
-            } catch (e) {
-                serializedBodyForPostMessage = null;
-            }
-        }
-
-        const messageOptions = {
-            method: effectiveOptions.method,
-            headers: Object.fromEntries(new Headers(effectiveOptions.headers).entries()),
-            body: serializedBodyForPostMessage
-        };
-
-        window.parent.postMessage({
-          type: 'requestFetch',
-          url: actualUrl,
-          modelName: modelName,
-          options: messageOptions,
-          promiseId: promiseId,
-        }, '*');
-
-        return promise;
-      }
-      return originalFetch.apply(window, fetchCallArgs);
-    }
-    return originalFetch.apply(window, fetchCallArgs);
-  };
-
-  window.addEventListener('message', function(event) {
-    if (event.data && event.data.type === 'resolveFetch') {
-      const { promiseId, response } = event.data;
-      if (pendingFetchResolvers[promiseId]) {
-        try {
-          const reconstructedResponse = new Response(response.body, {
-            status: response.status,
-            statusText: response.statusText,
-            headers: new Headers(response.headers),
-          });
-          pendingFetchResolvers[promiseId](reconstructedResponse);
-        } catch (error) {
-          pendingFetchResolvers[promiseId](new Response(null, { status: 500, statusText: "Interceptor Response Reconstruction Error" }));
-        }
-      }
-    }
-  });
-
-}))({"textModelName":"gemini-2.5-flash-preview-09-2025","imageModelName":"imagen-4.0-generate-001","imageEditModelName":"gemini-2.5-flash-image-preview","imageTransformModelName":"gemini-3-pro-image-preview-11-2025","videoModelName":"veo-2.0-generate-001","ttsModelName":"gemini-2.5-flash-preview-tts","deprecatedTextModelNames":["gemini-2.0-flash","gemini-2.5-flash-preview-04-17","gemini-2.5-flash-preview-05-20"],"deprecatedImageModelNames":["imagen-3.0-generate-001","imagen-3.0-generate-002"]})</script><script>(function() {
-  const originalConsoleLog = console.log;
-  const originalConsoleError = console.error;
-
-    /**
-   * Normalizes an error event or a promise rejection reason into a structured error object.
-   * @param {*} errorEventOrReason The error object or reason.
-   * @return {object} Structured error data { message, name, stack }.
-   */
-  function getErrorObject(errorEventOrReason) {
-    if (errorEventOrReason instanceof Error) {
-      return {
-        message: errorEventOrReason.message,
-        name: errorEventOrReason.name,
-        stack: errorEventOrReason.stack,
-      };
-    }
-    // Fallback for non-Error objects.
-    try {
-      return {
-        message: JSON.stringify(errorEventOrReason),
-        name: 'UnknownErrorType',
-        stack: null,
-      };
-    } catch (e) {
-      return {
-        message: String(errorEventOrReason),
-        name: 'UnknownErrorTypeNonStringifiable',
-        stack: null,
-      };
-    }
-  }
-
-  /**
-   * Converts an array of arguments (from log/error) into a single string.
-   * Handles Error objects specially to include their message and stack.
-   * @param {Array<*>} args - Arguments passed to console methods.
-   * @return {string} A string representation of the arguments.
-   */
-  function stringifyArgs(args) {
-    return args
-      .map((arg) => {
-        if (arg instanceof Error) {
-          const {message, stack} = arg;
-          return `Error: ${message}${stack ? ('\nStack: ' + stack) : ''}`;
-        }
-        if (typeof arg === 'object' && arg !== null) {
-          try {
-            return JSON.stringify(arg);
-          } catch (error) {
-            return '[Circular Object]';
-          }
-        } else {
-          return String(arg);
-        }
-      })
-      .join(' ');
-  }
-
-  console.log = function(...args) {
-    const logString = stringifyArgs(args);
-    window.parent.postMessage({ type: 'log', message: logString }, '*');
-    originalConsoleLog.apply(console, args);
-  };
-
-  console.error = function(...args) {
-    let errorData;
-    if (args.length > 0 && args[0] instanceof Error) {
-      const err = args[0];
-      // If the first arg is an Error, capture its details.
-      errorData = {
-        type: 'error',
-        source: 'CONSOLE_ERROR',
-        ...getErrorObject(err),
-        rawArgsString: stringifyArgs(args.slice(1)),
-        timestamp: new Date().toISOString(),
-      };
-    } else {
-      // If not an Error object, treat all args as a general error message.
-      errorData = {
-        type: 'error',
-        source: 'CONSOLE_ERROR',
-        message: stringifyArgs(args),
-        name: 'ConsoleLoggedError',
-        stack: null,
-        timestamp: new Date().toISOString(),
-      };
-    }
-    window.parent.postMessage(errorData, '*');
-    originalConsoleError.apply(console, args);
-  };
-
-  // Listen for global unhandled synchronous errors.
-  window.addEventListener('error', function(event) {
-    const errorDetails = event.error ? getErrorObject(event.error) : {
-      message: event.message,
-      name: 'GlobalError',
-      stack: null,
-      filename: event.filename,
-      lineno: event.lineno,
-      colno: event.colno,
-    };
-
-    window.parent.postMessage({
-      type: 'error',
-      source: 'global',
-      ...errorDetails,
-      message: errorDetails.message || event.message,
-      timestamp: new Date().toISOString(),
-    }, '*');
-  });
-
-  // Listen for unhandled promise rejections (asynchronous errors).
-  window.addEventListener('unhandledrejection', function(event) {
-    const errorDetails = getErrorObject(event.reason);
-
-    window.parent.postMessage({
-      type: 'error',
-      source: 'unhandledrejection',
-      ...errorDetails,
-      message: errorDetails.message || 'Unhandled Promise Rejection',
-      timestamp: new Date().toISOString(),
-    }, '*');
-  });
-
-})();</script>
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>第33回定期演奏会 係分担・進行管理アプリ</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js" crossorigin="anonymous"></script>
-    
-    <!-- Google Fonts: Noto Sans JP -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>第33回定演 進行管理 Pro</title>
 
-    <!-- Chosen Palette: Warm Neutrals & Soft Earth Tones -->
-    <!-- Application Structure Plan: 
-         1. Header: Branding and date. Includes direct save button.
-         2. Notices: Legacy lessons and critical reminders.
-         3. Logistics Analytics: Visualizing task distribution, including student workload.
-         4. Interactive Timeline: Comprehensive view with Student movements and Staff roles.
-         5. Staff Reference: Table showing ONLY adult staff/parent roles for administrative clarity.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+        rel="stylesheet">
 
     <style>
         body {
-            font-family: 'Noto Sans JP', sans-serif;
-            background-color: #FDFBF7;
-            color: #4A4A4A;
-        }
-        
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #9CA3AF; }
-
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 300px;
-            max-height: 400px;
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            background-color: #F9FAFB;
+            -webkit-tap-highlight-color: transparent;
+            padding-bottom: 80px;
+            /* For bottom nav */
         }
 
-        .fade-in { animation: fadeIn 0.5s ease-in-out; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .safe-area-bottom {
+            padding-bottom: env(safe-area-inset-bottom);
         }
 
-        .highlight-card {
-            border-left-width: 4px;
-            transform: scale(1.01);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        .active-tab {
+            color: #1E3A8A;
+        }
+
+        .active-tab svg {
+            stroke: #1E3A8A;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Checkbox custom style */
+        .task-checked {
+            opacity: 0.5;
+            text-decoration: line-through;
+        }
+
+        /* Pulse for "Now" task */
+        .current-task {
+            border: 2px solid #1E3A8A;
+            box-shadow: 0 0 10px rgba(30, 58, 138, 0.2);
+            animation: pulse-border 2s infinite;
+        }
+
+        @keyframes pulse-border {
+            0% {
+                border-color: #1E3A8A;
+            }
+
+            50% {
+                border-color: #3B82F6;
+            }
+
+            100% {
+                border-color: #1E3A8A;
+            }
         }
     </style>
-<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.top-0{top:0px}.-left-\[9px\]{left:-9px}.top-4{top:1rem}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.ml-3{margin-left:0.75rem}.mt-1{margin-top:0.25rem}.mt-12{margin-top:3rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.mb-3{margin-bottom:0.75rem}.flex{display:flex}.grid{display:grid}.h-5{height:1.25rem}.w-5{width:1.25rem}.min-w-full{min-width:100%}.max-w-4xl{max-width:56rem}.max-w-none{max-width:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.items-baseline{align-items:baseline}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-2{gap:0.5rem}.gap-4{gap:1rem}.gap-8{gap:2rem}.gap-3{gap:0.75rem}.space-x-3 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.75rem * var(--tw-space-x-reverse));margin-left:calc(0.75rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-12 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(3rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(3rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.divide-y > :not([hidden]) ~ :not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px * calc(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px * var(--tw-divide-y-reverse))}.divide-stone-100 > :not([hidden]) ~ :not([hidden]){--tw-divide-opacity:1;border-color:rgb(245 245 244 / var(--tw-divide-opacity, 1))}.overflow-x-auto{overflow-x:auto}.rounded{border-radius:0.25rem}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded-full{border-radius:9999px}.border{border-width:1px}.border-4{border-width:4px}.border-b{border-bottom-width:1px}.border-l-2{border-left-width:2px}.border-l-4{border-left-width:4px}.border-blue-400{--tw-border-opacity:1;border-color:rgb(96 165 250 / var(--tw-border-opacity, 1))}.border-emerald-400{--tw-border-opacity:1;border-color:rgb(52 211 153 / var(--tw-border-opacity, 1))}.border-orange-400{--tw-border-opacity:1;border-color:rgb(251 146 60 / var(--tw-border-opacity, 1))}.border-purple-400{--tw-border-opacity:1;border-color:rgb(192 132 252 / var(--tw-border-opacity, 1))}.border-stone-100{--tw-border-opacity:1;border-color:rgb(245 245 244 / var(--tw-border-opacity, 1))}.border-stone-200{--tw-border-opacity:1;border-color:rgb(231 229 228 / var(--tw-border-opacity, 1))}.border-blue-200{--tw-border-opacity:1;border-color:rgb(191 219 254 / var(--tw-border-opacity, 1))}.border-emerald-200{--tw-border-opacity:1;border-color:rgb(167 243 208 / var(--tw-border-opacity, 1))}.border-purple-200{--tw-border-opacity:1;border-color:rgb(233 213 255 / var(--tw-border-opacity, 1))}.border-red-200{--tw-border-opacity:1;border-color:rgb(254 202 202 / var(--tw-border-opacity, 1))}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.border-yellow-200{--tw-border-opacity:1;border-color:rgb(254 240 138 / var(--tw-border-opacity, 1))}.bg-red-100{--tw-bg-opacity:1;background-color:rgb(254 226 226 / var(--tw-bg-opacity, 1))}.bg-stone-200{--tw-bg-opacity:1;background-color:rgb(231 229 228 / var(--tw-bg-opacity, 1))}.bg-stone-50{--tw-bg-opacity:1;background-color:rgb(250 250 249 / var(--tw-bg-opacity, 1))}.bg-stone-800{--tw-bg-opacity:1;background-color:rgb(41 37 36 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-emerald-50{--tw-bg-opacity:1;background-color:rgb(236 253 245 / var(--tw-bg-opacity, 1))}.bg-purple-50{--tw-bg-opacity:1;background-color:rgb(250 245 255 / var(--tw-bg-opacity, 1))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity, 1))}.bg-stone-100{--tw-bg-opacity:1;background-color:rgb(245 245 244 / var(--tw-bg-opacity, 1))}.bg-stone-300{--tw-bg-opacity:1;background-color:rgb(214 211 209 / var(--tw-bg-opacity, 1))}.bg-yellow-50{--tw-bg-opacity:1;background-color:rgb(254 252 232 / var(--tw-bg-opacity, 1))}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-3{padding:0.75rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-8{padding-top:2rem;padding-bottom:2rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.pl-3{padding-left:0.75rem}.pb-2{padding-bottom:0.5rem}.pl-8{padding-left:2rem}.text-left{text-align:left}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[10px\]{font-size:10px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-\[9px\]{font-size:9px}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.tracking-tight{letter-spacing:-0.025em}.text-red-600{--tw-text-opacity:1;color:rgb(220 38 38 / var(--tw-text-opacity, 1))}.text-red-700{--tw-text-opacity:1;color:rgb(185 28 28 / var(--tw-text-opacity, 1))}.text-stone-300{--tw-text-opacity:1;color:rgb(214 211 209 / var(--tw-text-opacity, 1))}.text-stone-500{--tw-text-opacity:1;color:rgb(120 113 108 / var(--tw-text-opacity, 1))}.text-stone-600{--tw-text-opacity:1;color:rgb(87 83 78 / var(--tw-text-opacity, 1))}.text-stone-700{--tw-text-opacity:1;color:rgb(68 64 60 / var(--tw-text-opacity, 1))}.text-stone-800{--tw-text-opacity:1;color:rgb(41 37 36 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-blue-700{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity, 1))}.text-emerald-700{--tw-text-opacity:1;color:rgb(4 120 87 / var(--tw-text-opacity, 1))}.text-purple-700{--tw-text-opacity:1;color:rgb(126 34 206 / var(--tw-text-opacity, 1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.text-yellow-800{--tw-text-opacity:1;color:rgb(133 77 14 / var(--tw-text-opacity, 1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-60{opacity:0.6}.opacity-100{opacity:1}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.delay-100{transition-delay:100ms}.delay-200{transition-delay:200ms}.delay-300{transition-delay:300ms}.selection\:bg-orange-100 *::selection{--tw-bg-opacity:1;background-color:rgb(255 237 213 / var(--tw-bg-opacity, 1))}.selection\:text-orange-900 *::selection{--tw-text-opacity:1;color:rgb(124 45 18 / var(--tw-text-opacity, 1))}.selection\:bg-orange-100::selection{--tw-bg-opacity:1;background-color:rgb(255 237 213 / var(--tw-bg-opacity, 1))}.selection\:text-orange-900::selection{--tw-text-opacity:1;color:rgb(124 45 18 / var(--tw-text-opacity, 1))}.hover\:bg-blue-100:hover{--tw-bg-opacity:1;background-color:rgb(219 234 254 / var(--tw-bg-opacity, 1))}.hover\:bg-green-100:hover{--tw-bg-opacity:1;background-color:rgb(220 252 231 / var(--tw-bg-opacity, 1))}.hover\:bg-purple-100:hover{--tw-bg-opacity:1;background-color:rgb(243 232 255 / var(--tw-bg-opacity, 1))}.hover\:bg-red-100:hover{--tw-bg-opacity:1;background-color:rgb(254 226 226 / var(--tw-bg-opacity, 1))}.hover\:bg-stone-700:hover{--tw-bg-opacity:1;background-color:rgb(68 64 60 / var(--tw-bg-opacity, 1))}.hover\:bg-yellow-100:hover{--tw-bg-opacity:1;background-color:rgb(254 249 195 / var(--tw-bg-opacity, 1))}.hover\:bg-stone-50:hover{--tw-bg-opacity:1;background-color:rgb(250 250 249 / var(--tw-bg-opacity, 1))}.hover\:text-blue-700:hover{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity, 1))}.hover\:text-green-700:hover{--tw-text-opacity:1;color:rgb(21 128 61 / var(--tw-text-opacity, 1))}.hover\:text-purple-700:hover{--tw-text-opacity:1;color:rgb(126 34 206 / var(--tw-text-opacity, 1))}.hover\:text-red-700:hover{--tw-text-opacity:1;color:rgb(185 28 28 / var(--tw-text-opacity, 1))}.hover\:text-yellow-700:hover{--tw-text-opacity:1;color:rgb(161 98 7 / var(--tw-text-opacity, 1))}.hover\:shadow-md:hover{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}@media (min-width: 640px){.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}@media (min-width: 768px){.md\:ml-6{margin-left:1.5rem}.md\:mt-0{margin-top:0px}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:pl-10{padding-left:2.5rem}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-sm{font-size:0.875rem;line-height:1.25rem}.md\:text-xs{font-size:0.75rem;line-height:1rem}}</style></head>
-<body class="antialiased selection:bg-orange-100 selection:text-orange-900">
+</head>
 
-    <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-50 border-b border-stone-200">
-        <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div>
-                <h1 class="text-xl md:text-2xl font-bold text-stone-800 tracking-tight">🎶 第33回定期演奏会</h1>
-                <p class="text-xs md:text-sm text-stone-500 mt-1 text-red-600 font-bold">2026年3月26日(木) @ 鎌倉芸術館 小ホール</p>
-            </div>
-            <div class="flex items-center gap-2">
-                <button onclick="downloadSelf()" class="bg-stone-800 hover:bg-stone-700 text-white text-[10px] md:text-xs font-bold px-3 py-2 rounded-lg transition flex items-center gap-1 shadow-sm">
-                    <span>💾 ファイルを保存</span>
-                </button>
-            </div>
+<body class="antialiased">
+
+    <header class="glass sticky top-0 z-40 border-b border-gray-200 px-4 py-3 flex justify-between items-center">
+        <div>
+            <h1 class="text-sm font-bold text-gray-900">第33回定期演奏会</h1>
+            <p class="text-[10px] text-red-600 font-semibold">2026/03/26 鎌倉芸術館</p>
         </div>
+        <button onclick="scrollToCurrent()"
+            class="bg-blue-900 text-white text-[10px] px-3 py-1.5 rounded-full flex items-center gap-1 shadow-sm">
+            <i data-lucide="clock" class="w-3 h-3"></i> 今のタスク
+        </button>
     </header>
 
-    <main class="max-w-4xl mx-auto px-4 py-8 space-y-12">
-
-        <!-- Section 1: Important Notices -->
-        <section class="fade-in">
-            <div class="prose prose-stone max-w-none">
-                <div class="flex items-center justify-between mb-4">
-                    <h2 class="text-lg font-bold text-stone-700 border-l-4 border-orange-400 pl-3">運営の心得（最重要事項）</h2>
-                    <span class="text-xs font-bold bg-red-100 text-red-700 px-2 py-1 rounded">17:00 開演</span>
-                </div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-white p-5 rounded-xl shadow-sm border border-stone-100 flex items-start space-x-3 transition hover:shadow-md">
-                    <div class="text-2xl">📸</div>
-                    <div>
-                        <h3 class="font-bold text-stone-800 text-sm mb-1">写真による記録徹底</h3>
-                        <p class="text-xs text-stone-500 leading-relaxed">設営前に「楽屋」と「ホワイエ」の写真を撮影。退館時に100%元通りであることを確認します。</p>
-                    </div>
-                </div>
-                <div class="bg-white p-5 rounded-xl shadow-sm border border-stone-100 flex items-start space-x-3 transition hover:shadow-md">
-                    <div class="text-2xl">🎫</div>
-                    <div>
-                        <h3 class="font-bold text-stone-800 text-sm mb-1">チケット色別誘導</h3>
-                        <p class="text-xs text-stone-500 leading-relaxed">①来賓(緑) ②一般(黄) ③小(ピンク) の優先順位。17:00開演に向けスムーズな入場を。</p>
-                    </div>
-                </div>
-                <div class="bg-white p-5 rounded-xl shadow-sm border border-stone-100 flex items-start space-x-3 transition hover:shadow-md">
-                    <div class="text-2xl">💰</div>
-                    <div>
-                        <h3 class="font-bold text-stone-800 text-sm mb-1">ご祝儀の厳重管理</h3>
-                        <p class="text-xs text-stone-500 leading-relaxed">受付に現金を放置しない。開演後は会計担当が速やかに本部へ回収し、安全に管理します。</p>
-                    </div>
-                </div>
-                <div class="bg-white p-5 rounded-xl shadow-sm border border-stone-100 flex items-start space-x-3 transition hover:shadow-md">
-                    <div class="text-2xl">🎺</div>
-                    <div>
-                        <h3 class="font-bold text-stone-800 text-sm mb-1">生徒へのサポート</h3>
-                        <p class="text-xs text-stone-500 leading-relaxed">生徒が演奏に集中できるよう、保護者側で身の回りの整理や誘導を補助し、環境を整えます。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 2: Analytics Dashboard -->
-        <section class="fade-in delay-100">
-            <h2 class="text-lg font-bold text-stone-700 border-l-4 border-blue-400 pl-3 mb-4">業務負荷・アクティビティ分析</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
-                    <h3 class="text-center text-xs font-bold text-stone-500 mb-2">役割別のタスク配分（生徒含む）</h3>
-                    <div class="chart-container"><canvas id="taskDistributionChart" width="750" height="375" style="display: block; box-sizing: border-box; height: 300px; width: 600px;"></canvas></div>
-                </div>
-                <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
-                    <h3 class="text-center text-xs font-bold text-stone-500 mb-2">全体の忙しさ（時間帯別密度）</h3>
-                    <div class="chart-container"><canvas id="activityHeatmapChart" width="750" height="375" style="display: block; box-sizing: border-box; height: 300px; width: 600px;"></canvas></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 3: Interactive Timeline -->
-        <section class="fade-in delay-200" id="schedule-section">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-6">
-                <div>
-                    <h2 class="text-lg font-bold text-stone-700 border-l-4 border-emerald-400 pl-3">当日のタイムライン</h2>
-                    <p class="text-xs text-stone-500 mt-1">ボタンを押すと、各役割の動きが強調されます（✨が生徒です）。</p>
-                </div>
-                <div class="flex flex-wrap gap-2 mt-4 md:mt-0 justify-center">
-                    <button onclick="filterSchedule('all')" id="btn-all" class="filter-btn active px-3 py-1.5 rounded-lg text-xs font-bold bg-stone-800 text-white transition shadow-sm">全部</button>
-                    <button onclick="filterSchedule('students')" id="btn-students" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-200 text-stone-600 hover:bg-purple-100 hover:text-purple-700 transition">✨ 生徒(部員)</button>
-                    <button onclick="filterSchedule('hq')" id="btn-hq" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-200 text-stone-600 hover:bg-red-100 hover:text-red-700 transition">本部・接待</button>
-                    <button onclick="filterSchedule('accounting')" id="btn-accounting" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-200 text-stone-600 hover:bg-green-100 hover:text-green-700 transition">会計</button>
-                    <button onclick="filterSchedule('reception')" id="btn-reception" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-200 text-stone-600 hover:bg-blue-100 hover:text-blue-700 transition">受付・P</button>
-                    <button onclick="filterSchedule('venue')" id="btn-venue" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-200 text-stone-600 hover:bg-yellow-100 hover:text-yellow-700 transition">会場</button>
-                </div>
-            </div>
-            <div class="relative border-l-2 border-stone-200 ml-3 md:ml-6 space-y-6" id="timeline-container">
-                    <div class="relative pl-8 md:pl-10">
-                        <div class="absolute -left-[9px] top-4 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
-                        <div class="bg-white rounded-xl border border-stone-200 p-4 shadow-sm">
-                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
-                                <span class="text-lg font-bold text-stone-800">08:30</span>
-                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">スタッフ集合</span>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div class="opacity-100  p-3 rounded-lg border border-purple-200 bg-purple-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-purple-700">生徒(部員)</div>
-                            <div class="text-xs text-stone-700 leading-snug">生徒集合、出席確認、楽器・衣装搬入、着替え準備</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-red-200 bg-red-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-red-700">本部・接待</div>
-                            <div class="text-xs text-stone-700 leading-snug">本部設営、最終スケジュール確認</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-emerald-200 bg-emerald-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-emerald-700">会計</div>
-                            <div class="text-xs text-stone-700 leading-snug">金庫確認、謝礼金準備開始</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-blue-200 bg-blue-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-blue-700">受付・P</div>
-                            <div class="text-xs text-stone-700 leading-snug">備品搬入、受付セット</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-yellow-200 bg-yellow-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-yellow-800">会場</div>
-                            <div class="text-xs text-stone-700 leading-snug">会場内安全点検、看板設置</div>
-                        </div>
-                    </div>
-                        </div>
-                    </div>
-                
-                    <div class="relative pl-8 md:pl-10">
-                        <div class="absolute -left-[9px] top-4 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
-                        <div class="bg-white rounded-xl border border-stone-200 p-4 shadow-sm">
-                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
-                                <span class="text-lg font-bold text-stone-800">09:00</span>
-                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">会場入り・設営</span>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div class="opacity-100  p-3 rounded-lg border border-purple-200 bg-purple-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-purple-700">生徒(部員)</div>
-                            <div class="text-xs text-stone-700 leading-snug">大型楽器搬入、打楽器セッティング、個人練習・チューニング</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-red-200 bg-red-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-red-700">本部・接待</div>
-                            <div class="text-xs text-stone-700 leading-snug">ネームホルダー準備、OBOG出欠、<span class="text-red-500 font-bold">★</span>楽屋の写真撮影</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-emerald-200 bg-emerald-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-emerald-700">会計</div>
-                            <div class="text-xs text-stone-700 leading-snug">謝礼金準備、DGOB支払い準備</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-blue-200 bg-blue-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-blue-700">受付・P</div>
-                            <div class="text-xs text-stone-700 leading-snug">ホワイエ備品確認、<span class="text-red-500 font-bold">★</span>ホワイエの写真撮影</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-yellow-200 bg-yellow-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-yellow-800">会場</div>
-                            <div class="text-xs text-stone-700 leading-snug">忘れ物点検チェック、客席案内図確認</div>
-                        </div>
-                    </div>
-                        </div>
-                    </div>
-                
-                    <div class="relative pl-8 md:pl-10">
-                        <div class="absolute -left-[9px] top-4 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
-                        <div class="bg-white rounded-xl border border-stone-200 p-4 shadow-sm">
-                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
-                                <span class="text-lg font-bold text-stone-800">09:30</span>
-                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">業者入り</span>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div class="opacity-100  p-3 rounded-lg border border-purple-200 bg-purple-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-purple-700">生徒(部員)</div>
-                            <div class="text-xs text-stone-700 leading-snug">ステージ上セッティング、リハーサル準備</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-red-200 bg-red-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-red-700">本部・接待</div>
-                            <div class="text-xs text-stone-700 leading-snug">業者様（カメラ等）対応、駐車券渡し</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-emerald-200 bg-emerald-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-emerald-700">会計</div>
-                            <div class="text-xs text-stone-700 leading-snug">業者支払い準備</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-blue-200 bg-blue-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-blue-700">受付・P</div>
-                            <div class="text-xs text-stone-700 leading-snug">案内板設置、差出人カード準備</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-yellow-200 bg-yellow-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-yellow-800">会場</div>
-                            <div class="text-xs text-stone-700 leading-snug">楽器搬入サポート、トラック誘導</div>
-                        </div>
-                    </div>
-                        </div>
-                    </div>
-                
-                    <div class="relative pl-8 md:pl-10">
-                        <div class="absolute -left-[9px] top-4 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
-                        <div class="bg-white rounded-xl border border-stone-200 p-4 shadow-sm">
-                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
-                                <span class="text-lg font-bold text-stone-800">10:30</span>
-                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">リハーサル開始</span>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div class="opacity-100  p-3 rounded-lg border border-purple-200 bg-purple-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-purple-700">生徒(部員)</div>
-                            <div class="text-xs text-stone-700 leading-snug">第1部・第2部 通しリハーサル（ステージ上）</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-red-200 bg-red-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-red-700">本部・接待</div>
-                            <div class="text-xs text-stone-700 leading-snug">控室セッティング、電報リスト作成</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-emerald-200 bg-emerald-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-emerald-700">会計</div>
-                            <div class="text-xs text-stone-700 leading-snug">請求書チェック</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-blue-200 bg-blue-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-blue-700">受付・P</div>
-                            <div class="text-xs text-stone-700 leading-snug">受付カウンター設営</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-yellow-200 bg-yellow-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-yellow-800">会場</div>
-                            <div class="text-xs text-stone-700 leading-snug">リハ中の客席内見回り、撮影席確認</div>
-                        </div>
-                    </div>
-                        </div>
-                    </div>
-                
-                    <div class="relative pl-8 md:pl-10">
-                        <div class="absolute -left-[9px] top-4 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
-                        <div class="bg-white rounded-xl border border-stone-200 p-4 shadow-sm">
-                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
-                                <span class="text-lg font-bold text-stone-800">12:00</span>
-                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">昼食</span>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div class="opacity-100  p-3 rounded-lg border border-purple-200 bg-purple-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-purple-700">生徒(部員)</div>
-                            <div class="text-xs text-stone-700 leading-snug">部員昼食、休憩、楽器メンテナンス</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-red-200 bg-red-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-red-700">本部・接待</div>
-                            <div class="text-xs text-stone-700 leading-snug">業者・講師への昼食接待</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-emerald-200 bg-emerald-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-emerald-700">会計</div>
-                            <div class="text-xs text-stone-700 leading-snug">お弁当配布補助</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-blue-200 bg-blue-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-blue-700">受付・P</div>
-                            <div class="text-xs text-stone-700 leading-snug">交代で休憩</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-yellow-200 bg-yellow-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-yellow-800">会場</div>
-                            <div class="text-xs text-stone-700 leading-snug">お弁当配布（河野・榊原）、ゴミ回収、ホワイエ清掃</div>
-                        </div>
-                    </div>
-                        </div>
-                    </div>
-                
-                    <div class="relative pl-8 md:pl-10">
-                        <div class="absolute -left-[9px] top-4 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
-                        <div class="bg-white rounded-xl border border-stone-200 p-4 shadow-sm">
-                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
-                                <span class="text-lg font-bold text-stone-800">13:30</span>
-                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">午後リハーサル</span>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div class="opacity-100  p-3 rounded-lg border border-purple-200 bg-purple-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-purple-700">生徒(部員)</div>
-                            <div class="text-xs text-stone-700 leading-snug">アンサンブル・演出リハーサル、最終確認</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-red-200 bg-red-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-red-700">本部・接待</div>
-                            <div class="text-xs text-stone-700 leading-snug">追加電報確認、追加謝礼準備</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-emerald-200 bg-emerald-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-emerald-700">会計</div>
-                            <div class="text-xs text-stone-700 leading-snug">当日券管理の最終確認</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-blue-200 bg-blue-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-blue-700">受付・P</div>
-                            <div class="text-xs text-stone-700 leading-snug">プレゼント・差し入れ窓口設置</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-yellow-200 bg-yellow-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-yellow-800">会場</div>
-                            <div class="text-xs text-stone-700 leading-snug">場外整理用の動線確認、OBへの指示</div>
-                        </div>
-                    </div>
-                        </div>
-                    </div>
-                
-                    <div class="relative pl-8 md:pl-10">
-                        <div class="absolute -left-[9px] top-4 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
-                        <div class="bg-white rounded-xl border border-stone-200 p-4 shadow-sm">
-                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
-                                <span class="text-lg font-bold text-stone-800">14:00</span>
-                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">保護者・OB集合</span>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div class="opacity-100  p-3 rounded-lg border border-red-200 bg-red-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-red-700">本部・接待</div>
-                            <div class="text-xs text-stone-700 leading-snug">保護者スタッフ・OBOG受付、カード配布</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-emerald-200 bg-emerald-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-emerald-700">会計</div>
-                            <div class="text-xs text-stone-700 leading-snug">当日券販売準備</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-blue-200 bg-blue-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-blue-700">受付・P</div>
-                            <div class="text-xs text-stone-700 leading-snug"><span class="text-red-500 font-bold">★</span>お手伝い保護者全体挨拶、作業説明</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-yellow-200 bg-yellow-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-yellow-800">会場</div>
-                            <div class="text-xs text-stone-700 leading-snug"><span class="text-red-500 font-bold">★</span>OBへの誘導指示、カラー別列作成の準備</div>
-                        </div>
-                    </div>
-                        </div>
-                    </div>
-                
-                    <div class="relative pl-8 md:pl-10">
-                        <div class="absolute -left-[9px] top-4 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
-                        <div class="bg-white rounded-xl border border-stone-200 p-4 shadow-sm">
-                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
-                                <span class="text-lg font-bold text-stone-800">14:30</span>
-                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">リハ終了・身支度</span>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div class="opacity-100  p-3 rounded-lg border border-purple-200 bg-purple-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-purple-700">生徒(部員)</div>
-                            <div class="text-xs text-stone-700 leading-snug">リハーサル終了、ユニフォームへ着替え、メイク</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-red-200 bg-red-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-red-700">本部・接待</div>
-                            <div class="text-xs text-stone-700 leading-snug">花束到着対応、OBOG控室へ</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-blue-200 bg-blue-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-blue-700">受付・P</div>
-                            <div class="text-xs text-stone-700 leading-snug">プログラム挟み込み、ロゼット準備</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-yellow-200 bg-yellow-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-yellow-800">会場</div>
-                            <div class="text-xs text-stone-700 leading-snug">ポスター・掲示物最終チェック</div>
-                        </div>
-                    </div>
-                        </div>
-                    </div>
-                
-                    <div class="relative pl-8 md:pl-10">
-                        <div class="absolute -left-[9px] top-4 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
-                        <div class="bg-white rounded-xl border border-stone-200 p-4 shadow-sm">
-                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
-                                <span class="text-lg font-bold text-stone-800">15:30</span>
-                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">先行入場（3年生家）</span>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div class="opacity-100  p-3 rounded-lg border border-purple-200 bg-purple-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-purple-700">生徒(部員)</div>
-                            <div class="text-xs text-stone-700 leading-snug">舞台袖スタンバイ、音出し（禁止時間注意）</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-blue-200 bg-blue-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-blue-700">受付・P</div>
-                            <div class="text-xs text-stone-700 leading-snug">プログラム配布（先行）</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-yellow-200 bg-yellow-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-yellow-800">会場</div>
-                            <div class="text-xs text-stone-700 leading-snug">優先誘導：①来賓（緑） ②一般（黄） ③小学校（ピンク）</div>
-                        </div>
-                    </div>
-                        </div>
-                    </div>
-                
-                    <div class="relative pl-8 md:pl-10">
-                        <div class="absolute -left-[9px] top-4 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
-                        <div class="bg-white rounded-xl border border-stone-200 p-4 shadow-sm">
-                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
-                                <span class="text-lg font-bold text-stone-800">16:15</span>
-                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">一般開場</span>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div class="opacity-100  p-3 rounded-lg border border-purple-200 bg-purple-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-purple-700">生徒(部員)</div>
-                            <div class="text-xs text-stone-700 leading-snug">チューニング、気合入れ、舞台袖待機</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-emerald-200 bg-emerald-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-emerald-700">会計</div>
-                            <div class="text-xs text-stone-700 leading-snug">ご祝儀・差し入れの受け取り、名簿記入</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-blue-200 bg-blue-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-blue-700">受付・P</div>
-                            <div class="text-xs text-stone-700 leading-snug">プログラム配布、チケット回収</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-yellow-200 bg-yellow-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-yellow-800">会場</div>
-                            <div class="text-xs text-stone-700 leading-snug">場内プラカード（撮影禁止等）、ホワイエ整理</div>
-                        </div>
-                    </div>
-                        </div>
-                    </div>
-                
-                    <div class="relative pl-8 md:pl-10">
-                        <div class="absolute -left-[9px] top-4 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
-                        <div class="bg-white rounded-xl border border-stone-200 p-4 shadow-sm">
-                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
-                                <span class="text-lg font-bold text-stone-800">17:00</span>
-                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">第1部 開演</span>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div class="opacity-100  p-3 rounded-lg border border-purple-200 bg-purple-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-purple-700">生徒(部員)</div>
-                            <div class="text-xs text-stone-700 leading-snug">第1部演奏開始</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-red-200 bg-red-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-red-700">本部・接待</div>
-                            <div class="text-xs text-stone-700 leading-snug">電報最終化、司会へ。業者見送り準備</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-emerald-200 bg-emerald-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-emerald-700">会計</div>
-                            <div class="text-xs text-stone-700 leading-snug"><span class="text-red-500 font-bold">★</span>ご祝儀を会計本部へ集約</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-yellow-200 bg-yellow-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-yellow-800">会場</div>
-                            <div class="text-xs text-stone-700 leading-snug">ドアマン配置、演奏中の出入り規制</div>
-                        </div>
-                    </div>
-                        </div>
-                    </div>
-                
-                    <div class="relative pl-8 md:pl-10">
-                        <div class="absolute -left-[9px] top-4 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
-                        <div class="bg-white rounded-xl border border-stone-200 p-4 shadow-sm">
-                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
-                                <span class="text-lg font-bold text-stone-800">17:45</span>
-                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">休憩</span>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div class="opacity-100  p-3 rounded-lg border border-purple-200 bg-purple-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-purple-700">生徒(部員)</div>
-                            <div class="text-xs text-stone-700 leading-snug">舞台転換、衣装微調整、水分補給</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-red-200 bg-red-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-red-700">本部・接待</div>
-                            <div class="text-xs text-stone-700 leading-snug">花束を舞台袖へ移動（先生と連携）</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-blue-200 bg-blue-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-blue-700">受付・P</div>
-                            <div class="text-xs text-stone-700 leading-snug">追加電報の受け渡し</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-yellow-200 bg-yellow-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-yellow-800">会場</div>
-                            <div class="text-xs text-stone-700 leading-snug">トイレ誘導、来賓席の開放確認</div>
-                        </div>
-                    </div>
-                        </div>
-                    </div>
-                
-                    <div class="relative pl-8 md:pl-10">
-                        <div class="absolute -left-[9px] top-4 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
-                        <div class="bg-white rounded-xl border border-stone-200 p-4 shadow-sm">
-                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
-                                <span class="text-lg font-bold text-stone-800">18:02</span>
-                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">第2部 開演</span>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div class="opacity-100  p-3 rounded-lg border border-purple-200 bg-purple-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-purple-700">生徒(部員)</div>
-                            <div class="text-xs text-stone-700 leading-snug">第2部演奏、企画ステージ、アンコール</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-blue-200 bg-blue-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-blue-700">受付・P</div>
-                            <div class="text-xs text-stone-700 leading-snug">アンケート回収箱の設置</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-yellow-200 bg-yellow-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-yellow-800">会場</div>
-                            <div class="text-xs text-stone-700 leading-snug">場内巡回、演出時の安全確保</div>
-                        </div>
-                    </div>
-                        </div>
-                    </div>
-                
-                    <div class="relative pl-8 md:pl-10">
-                        <div class="absolute -left-[9px] top-4 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
-                        <div class="bg-white rounded-xl border border-stone-200 p-4 shadow-sm">
-                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
-                                <span class="text-lg font-bold text-stone-800">19:50</span>
-                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">終演・見送り</span>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div class="opacity-100  p-3 rounded-lg border border-purple-200 bg-purple-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-purple-700">生徒(部員)</div>
-                            <div class="text-xs text-stone-700 leading-snug">舞台上でお礼の挨拶、3年生によるお客様見送り</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-red-200 bg-red-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-red-700">本部・接待</div>
-                            <div class="text-xs text-stone-700 leading-snug"><span class="text-red-500 font-bold">★</span>次年度の業者打診、謝礼最終渡し</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-emerald-200 bg-emerald-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-emerald-700">会計</div>
-                            <div class="text-xs text-stone-700 leading-snug">ご祝儀集計、出欠確認、記帳</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-blue-200 bg-blue-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-blue-700">受付・P</div>
-                            <div class="text-xs text-stone-700 leading-snug">アンケート回収、忘れ物確認</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-yellow-200 bg-yellow-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-yellow-800">会場</div>
-                            <div class="text-xs text-stone-700 leading-snug"><span class="text-red-500 font-bold">★</span>忘れ物点検（2階・ロビー含む）、ゴミ拾い</div>
-                        </div>
-                    </div>
-                        </div>
-                    </div>
-                
-                    <div class="relative pl-8 md:pl-10">
-                        <div class="absolute -left-[9px] top-4 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
-                        <div class="bg-white rounded-xl border border-stone-200 p-4 shadow-sm">
-                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
-                                <span class="text-lg font-bold text-stone-800">20:30</span>
-                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">片付け</span>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div class="opacity-100  p-3 rounded-lg border border-purple-200 bg-purple-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-purple-700">生徒(部員)</div>
-                            <div class="text-xs text-stone-700 leading-snug">1-2年生：楽器片付け、トラック積み込み。3年生：ミーティング</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-red-200 bg-red-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-red-700">本部・接待</div>
-                            <div class="text-xs text-stone-700 leading-snug">荷物集約、忘れ物リスト作成</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-emerald-200 bg-emerald-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-emerald-700">会計</div>
-                            <div class="text-xs text-stone-700 leading-snug">会場支払い報告、清算</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-blue-200 bg-blue-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-blue-700">受付・P</div>
-                            <div class="text-xs text-stone-700 leading-snug">受付撤収、現状復帰、ゴミ集約</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-yellow-200 bg-yellow-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-yellow-800">会場</div>
-                            <div class="text-xs text-stone-700 leading-snug">楽器運搬補助、トイレ等最終清掃</div>
-                        </div>
-                    </div>
-                        </div>
-                    </div>
-                
-                    <div class="relative pl-8 md:pl-10">
-                        <div class="absolute -left-[9px] top-4 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
-                        <div class="bg-white rounded-xl border border-stone-200 p-4 shadow-sm">
-                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
-                                <span class="text-lg font-bold text-stone-800">21:00</span>
-                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">完全撤収</span>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div class="opacity-100  p-3 rounded-lg border border-purple-200 bg-purple-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-purple-700">生徒(部員)</div>
-                            <div class="text-xs text-stone-700 leading-snug">生徒ミーティング終了、解散（学校または現地）</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-red-200 bg-red-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-red-700">本部・接待</div>
-                            <div class="text-xs text-stone-700 leading-snug">楽屋入口集合、全体解散</div>
-                        </div>
-                    
-                        <div class="opacity-100  p-3 rounded-lg border border-yellow-200 bg-yellow-50 transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-yellow-800">会場</div>
-                            <div class="text-xs text-stone-700 leading-snug">忘れ物なし確認、退館</div>
-                        </div>
-                    </div>
-                        </div>
-                    </div>
-                </div>
-        </section>
-
-        <!-- Section 4: Role Members Reference -->
-        <section class="bg-white rounded-xl shadow-sm border border-stone-200 p-6 fade-in delay-300">
-             <h2 class="text-lg font-bold text-stone-700 border-l-4 border-purple-400 pl-3 mb-4">係別スタッフ名簿</h2>
-             <div class="overflow-x-auto">
-                <table class="min-w-full text-sm text-left text-stone-600">
-                    <thead class="text-xs text-stone-700 bg-stone-50">
-                        <tr>
-                            <th class="px-6 py-3">係名</th>
-                            <th class="px-6 py-3">リーダー (2年)</th>
-                            <th class="px-6 py-3">メンバー (1年)</th>
-                            <th class="px-6 py-3">主な役割</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-stone-100" id="members-table-body">
-                <tr class="hover:bg-stone-50 transition-colors">
-                    <td class="px-6 py-4 font-bold text-xs">本部・接待</td>
-                    <td class="px-6 py-4 text-xs">[氏名]</td>
-                    <td class="px-6 py-4 text-xs">[氏名]他</td>
-                    <td class="px-6 py-4 text-[10px] text-stone-500">業者対応、OBOG管理</td>
-                </tr>
-            
-                <tr class="hover:bg-stone-50 transition-colors">
-                    <td class="px-6 py-4 font-bold text-xs">会計</td>
-                    <td class="px-6 py-4 text-xs">[氏名]</td>
-                    <td class="px-6 py-4 text-xs">[氏名]他</td>
-                    <td class="px-6 py-4 text-[10px] text-stone-500">謝礼、ご祝儀管理</td>
-                </tr>
-            
-                <tr class="hover:bg-stone-50 transition-colors">
-                    <td class="px-6 py-4 font-bold text-xs">受付・P</td>
-                    <td class="px-6 py-4 text-xs">[氏名]</td>
-                    <td class="px-6 py-4 text-xs">[氏名]他</td>
-                    <td class="px-6 py-4 text-[10px] text-stone-500">プログラム、差出人管理</td>
-                </tr>
-            
-                <tr class="hover:bg-stone-50 transition-colors">
-                    <td class="px-6 py-4 font-bold text-xs">会場</td>
-                    <td class="px-6 py-4 text-xs">[氏名]</td>
-                    <td class="px-6 py-4 text-xs">[氏名]他</td>
-                    <td class="px-6 py-4 text-[10px] text-stone-500">場内・外整理、誘導</td>
-                </tr>
-            </tbody>
-                </table>
-             </div>
-        </section>
-
+    <main id="app-content" class="max-w-md mx-auto p-4 space-y-6">
     </main>
 
-    <footer class="bg-stone-800 text-stone-300 py-8 mt-12">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <p class="text-sm">本郷中学校吹奏楽部保護者会</p>
-            <p class="text-xs mt-2 opacity-60">2025年度 第33回定期演奏会 実行委員会</p>
+    <nav class="fixed bottom-0 left-0 right-0 glass border-t border-gray-200 z-50 safe-area-bottom">
+        <div class="flex justify-around items-center py-2">
+            <button onclick="switchTab('timeline')" id="tab-timeline"
+                class="flex flex-col items-center gap-1 text-gray-400 active-tab">
+                <i data-lucide="calendar" class="w-5 h-5"></i>
+                <span class="text-[9px] font-medium">タイムライン</span>
+            </button>
+            <button onclick="switchTab('staff')" id="tab-staff" class="flex flex-col items-center gap-1 text-gray-400">
+                <i data-lucide="users" class="w-5 h-5"></i>
+                <span class="text-[9px] font-medium">スタッフ</span>
+            </button>
+            <button onclick="switchTab('manual')" id="tab-manual"
+                class="flex flex-col items-center gap-1 text-gray-400">
+                <i data-lucide="book-open" class="w-5 h-5"></i>
+                <span class="text-[9px] font-medium">マニュアル</span>
+            </button>
+            <button onclick="downloadCode()" class="flex flex-col items-center gap-1 text-gray-400">
+                <i data-lucide="download" class="w-5 h-5"></i>
+                <span class="text-[9px] font-medium">保存</span>
+            </button>
         </div>
-    </footer>
+    </nav>
 
-    <!-- JavaScript Logic -->
     <script>
-        const concertData = {
-            roles: [
-                { id: 'students', name: '生徒(部員)', color: 'purple', leader: '部長・副部長', sub: '各パートリーダー', members: '1・2・3年生部員', note: '演奏、ステージ準備、片付け' },
-                { id: 'hq', name: '本部・接待', color: 'red', leader: '[氏名]', sub: '[氏名]', members: '[氏名]他', note: '業者対応、OBOG管理' },
-                { id: 'accounting', name: '会計', color: 'green', leader: '[氏名]', sub: '[氏名]', members: '[氏名]他', note: '謝礼、ご祝儀管理' },
-                { id: 'reception', name: '受付・P', color: 'blue', leader: '[氏名]', sub: '[氏名]', members: '[氏名]他', note: 'プログラム、差出人管理' },
-                { id: 'venue', name: '会場', color: 'yellow', leader: '[氏名]', sub: '[氏名]', members: '[氏名]他', note: '場内・外整理、誘導' }
+        // --- DATA ---
+        const staffData = {
+            protection: [
+                { role: "本部・接待", leader: "◎細越", sub: "戸村(2)", members: "金子(1)" },
+                { role: "会計", leader: "◎井口", sub: "横山(2)", members: "淺川(1)" },
+                { role: "受付(P)", leader: "◎矢作(2)", sub: "◎淺川(2)", members: "牧野, 小原, 佐藤, 原田, 渡邊(1)" },
+                { role: "会場", leader: "◎関野", sub: "中崎(2)", members: "長谷川(2), 大垣内(1)" }
             ],
-            schedule: [
-                { time: "08:30", stage: "スタッフ集合", tasks: { 
-                    students: "生徒集合、出席確認、楽器・衣装搬入、着替え準備",
-                    hq: "本部設営、最終スケジュール確認", 
-                    accounting: "金庫確認、謝礼金準備開始", 
-                    reception: "備品搬入、受付セット", 
-                    venue: "会場内安全点検、看板設置" 
-                }},
-                { time: "09:00", stage: "会場入り・設営", tasks: { 
-                    students: "大型楽器搬入、打楽器セッティング、個人練習・チューニング",
-                    hq: "ネームホルダー準備、OBOG出欠、★楽屋の写真撮影", 
-                    accounting: "謝礼金準備、DGOB支払い準備", 
-                    reception: "ホワイエ備品確認、★ホワイエの写真撮影", 
-                    venue: "忘れ物点検チェック、客席案内図確認" 
-                }},
-                { time: "09:30", stage: "業者入り", tasks: { 
-                    students: "ステージ上セッティング、リハーサル準備",
-                    hq: "業者様（カメラ等）対応、駐車券渡し", 
-                    accounting: "業者支払い準備", 
-                    reception: "案内板設置、差出人カード準備", 
-                    venue: "楽器搬入サポート、トラック誘導" 
-                }},
-                { time: "10:30", stage: "リハーサル開始", tasks: { 
-                    students: "第1部・第2部 通しリハーサル（ステージ上）",
-                    hq: "控室セッティング、電報リスト作成", 
-                    accounting: "請求書チェック", 
-                    reception: "受付カウンター設営", 
-                    venue: "リハ中の客席内見回り、撮影席確認" 
-                }},
-                { time: "12:00", stage: "昼食", tasks: { 
-                    students: "部員昼食、休憩、楽器メンテナンス",
-                    hq: "業者・講師への昼食接待", 
-                    accounting: "お弁当配布補助", 
-                    reception: "交代で休憩", 
-                    venue: "お弁当配布（河野・榊原）、ゴミ回収、ホワイエ清掃" 
-                }},
-                { time: "13:30", stage: "午後リハーサル", tasks: { 
-                    students: "アンサンブル・演出リハーサル、最終確認",
-                    hq: "追加電報確認、追加謝礼準備", 
-                    accounting: "当日券管理の最終確認", 
-                    reception: "プレゼント・差し入れ窓口設置", 
-                    venue: "場外整理用の動線確認、OBへの指示" 
-                }},
-                { time: "14:00", stage: "保護者・OB集合", tasks: { 
-                    hq: "保護者スタッフ・OBOG受付、カード配布", 
-                    accounting: "当日券販売準備", 
-                    reception: "★お手伝い保護者全体挨拶、作業説明", 
-                    venue: "★OBへの誘導指示、カラー別列作成の準備" 
-                }},
-                { time: "14:30", stage: "リハ終了・身支度", tasks: { 
-                    students: "リハーサル終了、ユニフォームへ着替え、メイク",
-                    hq: "花束到着対応、OBOG控室へ", 
-                    reception: "プログラム挟み込み、ロゼット準備", 
-                    venue: "ポスター・掲示物最終チェック" 
-                }},
-                { time: "15:30", stage: "先行入場（3年生家）", tasks: { 
-                    students: "舞台袖スタンバイ、音出し（禁止時間注意）",
-                    reception: "プログラム配布（先行）", 
-                    venue: "優先誘導：①来賓（緑） ②一般（黄） ③小学校（ピンク）" 
-                }},
-                { time: "16:15", stage: "一般開場", tasks: { 
-                    students: "チューニング、気合入れ、舞台袖待機",
-                    accounting: "ご祝儀・差し入れの受け取り、名簿記入", 
-                    reception: "プログラム配布、チケット回収", 
-                    venue: "場内プラカード（撮影禁止等）、ホワイエ整理" 
-                }},
-                { time: "17:00", stage: "第1部 開演", tasks: { 
-                    students: "第1部演奏開始",
-                    hq: "電報最終化、司会へ。業者見送り準備", 
-                    accounting: "★ご祝儀を会計本部へ集約", 
-                    venue: "ドアマン配置、演奏中の出入り規制" 
-                }},
-                { time: "17:45", stage: "休憩", tasks: { 
-                    students: "舞台転換、衣装微調整、水分補給",
-                    hq: "花束を舞台袖へ移動（先生と連携）", 
-                    reception: "追加電報の受け渡し", 
-                    venue: "トイレ誘導、来賓席の開放確認" 
-                }},
-                { time: "18:02", stage: "第2部 開演", tasks: { 
-                    students: "第2部演奏、企画ステージ、アンコール",
-                    reception: "アンケート回収箱の設置", 
-                    venue: "場内巡回、演出時の安全確保" 
-                }},
-                { time: "19:50", stage: "終演・見送り", tasks: { 
-                    students: "舞台上でお礼の挨拶、3年生によるお客様見送り",
-                    hq: "★次年度の業者打診、謝礼最終渡し", 
-                    accounting: "ご祝儀集計、出欠確認、記帳", 
-                    reception: "アンケート回収、忘れ物確認", 
-                    venue: "★忘れ物点検（2階・ロビー含む）、ゴミ拾い" 
-                }},
-                { time: "20:30", stage: "片付け", tasks: { 
-                    students: "1-2年生：楽器片付け、トラック積み込み。3年生：ミーティング",
-                    hq: "荷物集約、忘れ物リスト作成", 
-                    accounting: "会場支払い報告、清算", 
-                    reception: "受付撤収、現状復帰、ゴミ集約", 
-                    venue: "楽器運搬補助、トイレ等最終清掃" 
-                }},
-                { time: "21:00", stage: "完全撤収", tasks: { 
-                    students: "生徒ミーティング終了、解散（学校または現地）",
-                    hq: "楽屋入口集合、全体解散", 
-                    venue: "忘れ物なし確認、退館" 
-                }}
+            obog: [
+                { role: "ステマネ・サブ", members: "廣野さん, 斉藤瑠那さん", time: "09:00〜" },
+                { role: "ステージ係", members: "小峰伯史, 清水日葵, 渡邊香里奈, 力丸久乃, 菊本万聖", time: "09:00〜" },
+                { role: "受付(16時〜)", members: "荒谷夏美, 小原京香, 高橋美衣, 木村英里香", time: "16:00〜" },
+                { role: "ドアマン(16時〜)", members: "猪野田涼奈, 水野谷羚, 知久楓, 小峰明季", time: "16:00〜" },
+                { role: "場内(16時〜)", members: "中飯俊之介, 風間瑛仁, 蔵下ののか, 沖愛実", time: "16:00〜" },
+                { role: "プレゼント(16時〜)", members: "小林真緒, 浦川颯生, 長谷川苺香", time: "16:00〜" },
+                { role: "楽器運搬(夜)", members: "計15名", time: "20:30〜" }
             ]
         };
 
-        // --- RENDER HELPERS ---
-        function getColorClass(colorName, type) {
-            const map = {
-                'purple': { bg: 'purple-500', bgSoft: 'purple-50', text: 'purple-700', border: 'purple-200' },
-                'red': { bg: 'red-500', bgSoft: 'red-50', text: 'red-700', border: 'red-200' },
-                'green': { bg: 'emerald-500', bgSoft: 'emerald-50', text: 'emerald-700', border: 'emerald-200' },
-                'blue': { bg: 'blue-500', bgSoft: 'blue-50', text: 'blue-700', border: 'blue-200' },
-                'yellow': { bg: 'yellow-500', bgSoft: 'yellow-50', text: 'yellow-800', border: 'yellow-200' }
-            };
-            const c = map[colorName] || map['red'];
-            return c[type];
+        const schedule = [
+            { time: "09:00", event: "会場入り・本部集合", tasks: ["楽屋の写真を撮る（原状復帰用資料）📸", "ネームホルダー・スタッフカード配布", "駐車券渡し（業者:ゴイス・高品・吉岡さん）"], tags: ["本部", "接待"] },
+            { time: "10:30", event: "リハーサル開始", tasks: ["業者支払い（吉岡さん）💰", "控室にお菓子・飲み物セッティング"], tags: ["会計", "本部"] },
+            { time: "12:00", event: "役員・スタッフ昼食", tasks: ["ホワイエ（ロビー）の写真を撮る📸", "受付カウンター設営（来賓・一般・回収・当日券）"], tags: ["受付", "会場"] },
+            { time: "13:00", event: "午後リハーサル開始", tasks: ["プレゼント差出人カード・案内板準備"], tags: ["受付"] },
+            { time: "15:00", event: "全体挨拶・作業説明", tasks: ["OBOG集合・出欠確認", "各係の作業分担・説明（ホワイエ）"], tags: ["全員"] },
+            { time: "15:30", event: "3年生保護者・家族入場", tasks: ["プログラムお渡し開始"], tags: ["受付"] },
+            { time: "16:15", event: "来賓・一般開場", tasks: ["来賓名簿記入、ご祝儀・差し入れ預かり", "当日券の名前記入・管理"], tags: ["受付", "会計"] },
+            { time: "16:55", event: "1ベル（開演5分前）", tasks: ["来賓席の開放判断", "ドアマン配置、入場規制開始"], tags: ["会場", "OBOG"] },
+            { time: "17:00", event: "第1部 開演", tasks: ["【会計】ご祝儀を回収・本部へ移動（受付に残さない）🚨", "電報リストを司会へ"], tags: ["会計", "本部"] },
+            { time: "19:00", event: "終演・見送り", tasks: ["3年生による見送り補助", "アンケート回収・ボックス設置", "会場事務所からの電話対応（支払い連絡）"], tags: ["全員"] },
+            { time: "20:30", event: "片付け・積み込み", tasks: ["1-2年生楽器片付け", "OBOG15名と合流して運搬補助", "すべて原状復帰にて返却・忘れ物点検"], tags: ["全員", "運搬"] },
+            { time: "21:30", event: "完全撤収・解散", tasks: ["楽屋入口に集合・解散", "※待ち合わせは芸術館入口前"], tags: ["全員"] }
+        ];
+
+        // --- APP LOGIC ---
+        function switchTab(tab) {
+            document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active-tab'));
+            document.getElementById(`tab-${tab}`).classList.add('active-tab');
+            render(tab);
         }
 
-        function filterSchedule(roleId) {
-            const buttons = document.querySelectorAll('.filter-btn');
-            buttons.forEach(btn => {
-                if (btn.id === `btn-${roleId}`) {
-                    btn.classList.add('bg-stone-800', 'text-white', 'shadow-md');
-                    btn.classList.remove('bg-stone-200', 'text-stone-600');
-                } else {
-                    btn.classList.remove('bg-stone-800', 'text-white', 'shadow-md');
-                    btn.classList.add('bg-stone-200', 'text-stone-600');
-                }
-            });
-            renderTimeline(roleId);
+        function toggleTask(id) {
+            const checked = localStorage.getItem(id) === 'true';
+            localStorage.setItem(id, !checked);
+            render('timeline');
         }
 
-        function renderTimeline(filter = 'all') {
-            const container = document.getElementById('timeline-container');
-            container.innerHTML = concertData.schedule.map(slot => {
-                let tasksHTML = '<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">';
-                Object.keys(slot.tasks).forEach(key => {
-                    const taskText = slot.tasks[key];
-                    if (!taskText || taskText.trim() === "") return;
-                    
-                    const role = concertData.roles.find(r => r.id === key);
-                    const isSelected = filter === 'all' || filter === key;
-                    const opacity = isSelected ? 'opacity-100' : 'opacity-20 grayscale';
-                    const activeClass = (filter === key) ? 'ring-2 ring-purple-300 shadow-md transform scale-[1.01]' : '';
-                    
-                    tasksHTML += `
-                        <div class="${opacity} ${activeClass} p-3 rounded-lg border border-${getColorClass(role.color, 'border')} bg-${getColorClass(role.color, 'bgSoft')} transition-all">
-                            <div class="text-[9px] font-bold uppercase mb-1 text-${getColorClass(role.color, 'text')}">${role.name}</div>
-                            <div class="text-xs text-stone-700 leading-snug">${taskText.replace(/★/g, '<span class="text-red-500 font-bold">★</span>')}</div>
+        function openCamera() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.capture = 'environment';
+            input.click();
+        }
+
+        function render(tab) {
+            const container = document.getElementById('app-content');
+            container.innerHTML = '';
+
+            if (tab === 'timeline') {
+                schedule.forEach((item, idx) => {
+                    const taskHtml = item.tasks.map((task, tIdx) => {
+                        const id = `task-${idx}-${tIdx}`;
+                        const checked = localStorage.getItem(id) === 'true';
+                        const isPhoto = task.includes('📸');
+                        return `
+                            <div class="flex items-start gap-3 py-2 ${checked ? 'task-checked' : ''}" onclick="${isPhoto ? 'openCamera()' : `toggleTask('${id}')`}">
+                                <div class="mt-0.5 w-4 h-4 border-2 border-blue-900 rounded flex items-center justify-center">
+                                    ${checked ? '<i data-lucide="check" class="w-3 h-3 text-blue-900"></i>' : ''}
+                                </div>
+                                <p class="text-[11px] text-gray-700 leading-snug">${task}</p>
+                            </div>
+                        `;
+                    }).join('');
+
+                    container.innerHTML += `
+                        <div id="time-${item.time.replace(':', '')}" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 timeline-card">
+                            <div class="flex items-baseline justify-between mb-2">
+                                <span class="text-lg font-bold text-blue-900">${item.time}</span>
+                                <span class="text-[10px] font-bold bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full uppercase">${item.event}</span>
+                            </div>
+                            <div class="divide-y divide-gray-50">${taskHtml}</div>
+                            <div class="mt-2 flex gap-1">
+                                ${item.tags.map(t => `<span class="text-[8px] bg-blue-50 text-blue-700 px-2 py-0.5 rounded">${t}</span>`).join('')}
+                            </div>
                         </div>
                     `;
                 });
-                tasksHTML += '</div>';
-
-                return `
-                    <div class="relative pl-8 md:pl-10">
-                        <div class="absolute -left-[9px] top-4 w-5 h-5 bg-stone-300 rounded-full border-4 border-white"></div>
-                        <div class="bg-white rounded-xl border border-stone-200 p-4 shadow-sm">
-                            <div class="flex items-baseline gap-3 mb-3 border-b border-stone-100 pb-2">
-                                <span class="text-lg font-bold text-stone-800">${slot.time}</span>
-                                <span class="text-xs font-semibold text-stone-600 bg-stone-100 px-2 py-0.5 rounded">${slot.stage}</span>
+            } else if (tab === 'staff') {
+                let html = '<h2 class="text-sm font-bold text-gray-900 mb-4">保護者スタッフ名簿 [cite: 4]</h2>';
+                staffData.protection.forEach(s => {
+                    html += `
+                        <div class="bg-white p-3 rounded-xl border border-gray-100 mb-2 shadow-sm">
+                            <div class="flex justify-between font-bold text-xs text-blue-900 mb-1">
+                                <span>${s.role}</span>
+                                <span>${s.leader}</span>
                             </div>
-                            ${tasksHTML}
+                            <div class="text-[10px] text-gray-500">メンバー: ${s.members}</div>
+                        </div>
+                    `;
+                });
+                html += '<h2 class="text-sm font-bold text-gray-900 mt-6 mb-4">OBOGスタッフ名簿</h2>';
+                staffData.obog.forEach(s => {
+                    html += `
+                        <div class="bg-blue-50 p-3 rounded-xl border border-blue-100 mb-2">
+                            <div class="flex justify-between font-bold text-xs text-blue-800 mb-1">
+                                <span>${s.role}</span>
+                                <span>${s.time}</span>
+                            </div>
+                            <div class="text-[10px] text-blue-600">${s.members}</div>
+                        </div>
+                    `;
+                });
+                container.innerHTML = html;
+            } else if (tab === 'manual') {
+                container.innerHTML = `
+                    <div class="space-y-4">
+                        <div class="bg-orange-50 border-l-4 border-orange-400 p-4 rounded-r-xl">
+                            <h3 class="text-xs font-bold text-orange-800 mb-1 flex items-center gap-1">
+                                <i data-lucide="alert-circle" class="w-3 h-3"></i> 最重要：原状復帰 [cite: 9, 119, 126]
+                            </h3>
+                            <p class="text-[10px] text-orange-700 leading-relaxed">全ての備品を写真資料を元に完全に元通りに戻します。ゴミは各自で持ち帰らず、指示に従い集約してください。</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
+                            <h3 class="text-xs font-bold text-blue-900 mb-2">チケット・誘導ルール [cite: 25, 67, 70]</h3>
+                            <ul class="text-[10px] text-gray-600 space-y-2 list-disc pl-4">
+                                <li><strong>優先順位:</strong> ①来賓(緑) ②一般(黄) ③小学校(ピンク)</li>
+                                <li><strong>15:30:</strong> 3年生保護者先行入場開始。</li>
+                                <li><strong>開演5分前:</strong> 来賓席が空いている場合、一般開放を検討。</li>
+                            </ul>
                         </div>
                     </div>
                 `;
-            }).join('');
+            }
+            lucide.createIcons();
         }
 
-        function initCharts() {
-            const roleLabels = concertData.roles.map(r => r.name);
-            const taskCounts = concertData.roles.map(r => concertData.schedule.filter(s => s.tasks[r.id] && s.tasks[r.id] !== "").length);
-            
-            new Chart(document.getElementById('taskDistributionChart'), {
-                type: 'doughnut',
-                data: {
-                    labels: roleLabels,
-                    datasets: [{
-                        data: taskCounts,
-                        backgroundColor: ['#8b5cf6', '#ef4444', '#10b981', '#3b82f6', '#eab308'],
-                        borderWidth: 0
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } } }
-                }
-            });
+        function scrollToCurrent() {
+            const now = new Date();
+            const currentTime = now.getHours() * 100 + now.getMinutes();
+            let targetId = '';
 
-            new Chart(document.getElementById('activityHeatmapChart'), {
-                type: 'bar',
-                data: {
-                    labels: concertData.schedule.map(s => s.time),
-                    datasets: [{
-                        label: 'タスク密度',
-                        data: concertData.schedule.map(s => Object.values(s.tasks).filter(t => t && t !== "").length),
-                        backgroundColor: '#a8a29e',
-                        borderRadius: 4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: { y: { display: false }, x: { grid: { display: false }, ticks: { font: { size: 8 } } } },
-                    plugins: { legend: { display: false } }
+            // Find closest upcoming task
+            for (let item of schedule) {
+                const itemTime = parseInt(item.time.replace(':', ''));
+                if (itemTime >= currentTime - 30) { // Show 30m buffer
+                    targetId = `time-${item.time.replace(':', '')}`;
+                    break;
                 }
-            });
+            }
+
+            if (targetId) {
+                switchTab('timeline');
+                setTimeout(() => {
+                    const el = document.getElementById(targetId);
+                    if (el) {
+                        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        el.classList.add('current-task');
+                        setTimeout(() => el.classList.remove('current-task'), 5000);
+                    }
+                }, 100);
+            }
         }
 
-        function downloadSelf() {
-            const htmlContent = document.documentElement.outerHTML;
-            const blob = new Blob([htmlContent], { type: 'text/html' });
+        function downloadCode() {
+            const blob = new Blob([document.documentElement.outerHTML], { type: 'text/html' });
             const a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
-            a.download = 'index.html';
-            document.body.appendChild(a);
+            a.download = 'concert-app-pro.html';
             a.click();
-            document.body.removeChild(a);
         }
 
+        // Init
         document.addEventListener('DOMContentLoaded', () => {
-            // Filter out Students from the Reference List
-            const staffRoles = concertData.roles.filter(role => role.id !== 'students');
-            
-            document.getElementById('members-table-body').innerHTML = staffRoles.map(role => `
-                <tr class="hover:bg-stone-50 transition-colors">
-                    <td class="px-6 py-4 font-bold text-xs">${role.name}</td>
-                    <td class="px-6 py-4 text-xs">${role.leader}</td>
-                    <td class="px-6 py-4 text-xs">${role.members}</td>
-                    <td class="px-6 py-4 text-[10px] text-stone-500">${role.note}</td>
-                </tr>
-            `).join('');
-            
-            renderTimeline();
-            initCharts();
+            render('timeline');
+            lucide.createIcons();
         });
     </script>
+</body>
 
-</body></html>
+</html>
